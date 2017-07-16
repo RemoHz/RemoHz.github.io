@@ -1,148 +1,349 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+
+
+
   
-  <title>Learning Angular2 From Zero (Entry00) | Remo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Learning Angular2 from Zero (00) Start15th Sep 2016, Google annuounced the final release version of Angular2. This is the most stable version which means the efficiency and performance have made a hug">
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Learning Angular2 from Zero (00) Start15th Sep 2016, Google annuounced the final release version of Angular2. This is the most stable version which means the efficiency and performance have made a hug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learning Angular2 From Zero (Entry00)">
 <meta property="og:url" content="http://remo.host/2016/09/29/2016-09-29-learning-angular2-from-0-0/index.html">
 <meta property="og:site_name" content="Remo">
 <meta property="og:description" content="Learning Angular2 from Zero (00) Start15th Sep 2016, Google annuounced the final release version of Angular2. This is the most stable version which means the efficiency and performance have made a hug">
 <meta property="og:image" content="https://angular.io/resources/images/devguide/architecture/overview2.png">
-<meta property="og:updated_time" content="2017-07-16T05:10:59.000Z">
+<meta property="og:updated_time" content="2017-07-16T05:33:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learning Angular2 From Zero (Entry00)">
 <meta name="twitter:description" content="Learning Angular2 from Zero (00) Start15th Sep 2016, Google annuounced the final release version of Angular2. This is the most stable version which means the efficiency and performance have made a hug">
 <meta name="twitter:image" content="https://angular.io/resources/images/devguide/architecture/overview2.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://remo.host/2016/09/29/2016-09-29-learning-angular2-from-0-0/"/>
+
+
+
+
+
+  <title>Learning Angular2 From Zero (Entry00) | Remo</title>
   
-    <link rel="alternate" href="/atom.xml" title="Remo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Remo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://remo.host"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-2016-09-29-learning-angular2-from-0-0" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/29/2016-09-29-learning-angular2-from-0-0/" class="article-date">
-  <time datetime="2016-09-29T04:36:10.000Z" itemprop="datePublished">2016-09-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
   
-    <h1 class="article-title" itemprop="name">
-      Learning Angular2 From Zero (Entry00)
-    </h1>
+  
+    
   
 
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Remo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://remo.host/2016/09/29/2016-09-29-learning-angular2-from-0-0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Remo HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Remo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Learning Angular2 From Zero (Entry00)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-29T00:00:00+10:00">
+                2016-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <h2 id="Learning-Angular2-from-Zero-00-Start"><a href="#Learning-Angular2-from-Zero-00-Start" class="headerlink" title="Learning Angular2 from Zero (00) Start"></a>Learning Angular2 from Zero (00) Start</h2><p>15th Sep 2016, Google annuounced the final release version of Angular2. This is the most stable version which means the efficiency and performance have made a huge progress. </p>
 <p>As a entry level front-end developer, it’s quite lucky that I could pick Angular2 as my entry framework. Due to the big difference between Angular1 and Angular2, I’m at the same start line comparing to other experienced Angular1 developer, which makes me feel a little bit confident and easy :stuck_out_tongue_winking_eye:. And also I really recommend Angular2 to the entry level front-end users just like me. Only if you have some basic object-oriented programming experience, you could master the Angular2 quickly. Most of the Typescript syntax is just like writing Java programs and you will enjoy to change back-end development into front-end development easily.</p>
 <p>So from this post, I wanna record my learning journey for the Angular2. Most of relaed materials are from Udemy Angular2 course and Angular2 official page, which could find the link in <code>Reference</code>.</p>
 <h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><h3 id="1-Architecture-of-Angular2"><a href="#1-Architecture-of-Angular2" class="headerlink" title="1. Architecture of Angular2"></a>1. Architecture of Angular2</h3><p><img src="https://angular.io/resources/images/devguide/architecture/overview2.png" alt="Alt text"></p>
 <h3 id="2-Environment-Setup"><a href="#2-Environment-Setup" class="headerlink" title="2. Environment Setup"></a>2. Environment Setup</h3><p>Follow the below order to set up the development environment.</p>
-<p>2.1 Install <a href="https://nodejs.org/en/download/" target="_blank" rel="external">Node.js</a></p>
-<pre><code>// If you are Mac users and installed the Homebrew, just follow the below command.
-$ brew install node
-$ node -v
-// If not, you may need to down the Node package and install manually.
-</code></pre><p>2.2 Install <a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank" rel="external">NPM</a></p>
-<pre><code>// If you installed `Node` by Homebrew, the `NPM` is already installed at the same time.
-$ npm install
-$ npm -v
-</code></pre><p>2.3 Install <a href="https://www.typescriptlang.org/" target="_blank" rel="external">Typescript</a></p>
-<pre><code>$ npm install -g typescript // May need &apos;sudo&apos; to get superuser permission
-</code></pre><p>2.4 Install <a href="https://www.npmjs.com/package/typings" target="_blank" rel="external">Typings</a></p>
-<pre><code>$ npm install -g typings // Again, may need &apos;sudo&apos; to get superuser permission
-</code></pre><p>2.5 Recommend Development Tools</p>
-<ul>
-<li><a href="https://code.visualstudio.com" target="_blank" rel="external">Visual Studio Code</a></li>
-<li><a href="https://www.google.com.au/chrome/browser/desktop/" target="_blank" rel="external">Google Chrome</a></li>
-</ul>
-<h3 id="3-Angular2-Seed-Project"><a href="#3-Angular2-Seed-Project" class="headerlink" title="3. Angular2 Seed Project"></a>3. Angular2 Seed Project</h3><p>Download from <code>/Entry00/Angular2-seed.zip</code>, the structure of those files are below:</p>
-<pre><code>|-- app
-|   |-- app.component.js
-|   |-- app.component.js.map
-|   |-- app.component.ts    // Root component of application
-|   |-- boot.ts     // Starting modules of application
-|   |-- boot.js.map
-|   `-- boot.js
+<p>2.1 Install <a href="https://nodejs.org/en/download/" target="_blank" rel="external">Node.js</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// If you are Mac users and installed the Homebrew, just follow the below command.</div><div class="line">$ brew install node</div><div class="line">$ node -v</div><div class="line">// If not, you may need to down the Node package and install manually.</div></pre></td></tr></table></figure></p>
+<p>2.2 Install <a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank" rel="external">NPM</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// If you installed `Node` by Homebrew, the `NPM` is already installed at the same time.</div><div class="line">$ npm install</div><div class="line">$ npm -v</div><div class="line">```      </div><div class="line">2.3 Install [Typescript](https://www.typescriptlang.org/)</div></pre></td></tr></table></figure></p>
+<p>$ npm install -g typescript // May need ‘sudo’ to get superuser permission<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2.4 Install [Typings](https://www.npmjs.com/package/typings)</div></pre></td></tr></table></figure></p>
+<p>$ npm install -g typings // Again, may need ‘sudo’ to get superuser permission<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">2.5 Recommend Development Tools</div><div class="line"></div><div class="line">  * [Visual Studio Code](https://code.visualstudio.com)</div><div class="line">  * [Google Chrome](https://www.google.com.au/chrome/browser/desktop/)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">### 3. Angular2 Seed Project</div><div class="line">Download from `/Entry00/Angular2-seed.zip`, the structure of those files are below:</div></pre></td></tr></table></figure></p>
+<p>|– app<br>|   |– app.component.js<br>|   |– app.component.js.map<br>|   |– app.component.ts    // Root component of application<br>|   |– boot.ts     // Starting modules of application<br>|   |– boot.js.map<br>|   <code>-- boot.js
 |-- package.json    // Standard Node package configuration
 |-- tsconfig.json   // Configuration for Typescript compiler (Typescripty =&gt; Javascripty)
-|-- typings.json    // Typescript definition configuration
-`-- index.html
-</code></pre><h3 id="4-Run-Hello-World"><a href="#4-Run-Hello-World" class="headerlink" title="4. Run Hello World"></a>4. Run Hello World</h3><p>4.1 Go to the seed directory</p>
-<pre><code>$ cd ~/Angualr2-seed/   // The path to your Angular2 seed project directory
-</code></pre><p>4.2 Initial project (Intall the dependencies)</p>
-<pre><code>$ npm install
-</code></pre><p>4.3 New structure of the directory</p>
-<pre><code>|-- app
-|   |-- app.component.js
-|   |-- app.component.js.map
-|   |-- app.component.ts    // Root component of application
-|   |-- boot.ts     // Starting modular of application
-|   |-- boot.js.map
-|   `-- boot.js
+|-- typings.json    // Typescript definition configuration</code>– index.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 4. Run Hello World</div><div class="line"></div><div class="line">4.1 Go to the seed directory</div></pre></td></tr></table></figure></p>
+<p>$ cd ~/Angualr2-seed/   // The path to your Angular2 seed project directory<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4.2 Initial project (Intall the dependencies)</div></pre></td></tr></table></figure></p>
+<p>$ npm install<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4.3 New structure of the directory</div></pre></td></tr></table></figure></p>
+<p>|– app<br>|   |– app.component.js<br>|   |– app.component.js.map<br>|   |– app.component.ts    // Root component of application<br>|   |– boot.ts     // Starting modular of application<br>|   |– boot.js.map<br>|   <code>-- boot.js
 |-- package.json    // Standard Node package configuration
 |-- tsconfig.json   // Configuration for Typescript compiler (Typescripty =&gt; Javascripty)
 |-- typings.json    // Typescript definition configuration
 |-- index.html
-|-- typings
-`-- node_modules    // Installed dependencies
-</code></pre><p>4.4 Run it</p>
+|-- typings</code>– node_modules    // Installed dependencies<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">4.4 Run it</div></pre></td></tr></table></figure></p>
 <pre><code>$ npm start
-</code></pre><p>This will automatically compile the typescripte code into javascript and run it in you browser.</p>
+</code></pre><p>```<br>This will automatically compile the typescripte code into javascript and run it in you browser.</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="https://www.udemy.com/angular-2-tutorial-for-beginners/" target="_blank" rel="external">Udemy/Mosh Hamedani</a></li>
 <li><a href="https://angular.io" target="_blank" rel="external">Angular2.io</a></li>
@@ -151,120 +352,338 @@ $ npm -v
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://remo.host/2016/09/29/2016-09-29-learning-angular2-from-0-0/" data-id="cj569n13o0004u0rnpzl01yxl" class="article-share-link">Share</a>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/18/2016-09-18-lga-visualization/" rel="next" title="Melbourne LGA Profile Visualization">
+                <i class="fa fa-chevron-left"></i> Melbourne LGA Profile Visualization
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/01/2016-10-02-learning-angular2-From-0-1/" rel="prev" title="Learning Angular2 From Zero (Entry01)">
+                Learning Angular2 From Zero (Entry01) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
       
       
     </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
-  
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
     
-<nav id="article-nav">
-  
-    <a href="/2016/10/02/2016-10-02-learning-angular2-From-0-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
+  </div>
+
+
+        </div>
         
-          Learning Angular2 From Zero (Entry01)
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Remo HU" />
+          <p class="site-author-name" itemprop="name">Remo HU</p>
+           
+              <p class="site-description motion-element" itemprop="description">Remo's Blog</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-Angular2-from-Zero-00-Start"><span class="nav-number">1.</span> <span class="nav-text">Learning Angular2 from Zero (00) Start</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Start"><span class="nav-number">2.</span> <span class="nav-text">Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Architecture-of-Angular2"><span class="nav-number">2.1.</span> <span class="nav-text">1. Architecture of Angular2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Environment-Setup"><span class="nav-number">2.2.</span> <span class="nav-text">2. Environment Setup</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github"><span class="nav-number">4.</span> <span class="nav-text">Github</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
-    </a>
-  
-  
-    <a href="/2016/09/18/2016-09-18-lga-visualization/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Melbourne LGA Profile Visualization</div>
-    </a>
-  
-</nav>
+    </main>
 
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
-    </div>
-  </div>
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Remo HU</span>
+</div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/07/16/init-post/">init-post</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/16/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/05/2016-11-05-CSS-Position/">CSS Position Property</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/11/2016-10-11-dependency-injection/">What is Dependency Injection (DI) ?</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/10/2016-10-10-learning-angular2-from-0-3/">Learning Angular2 From Zero (Entry03)</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
 
-  
-</aside>
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 Remo HU<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

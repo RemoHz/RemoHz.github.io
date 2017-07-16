@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Learning Angular2 from Zero (01) BasicStartThis entry is mainly covered the basic Component, Service, Directives and some tricks. All those are just to have a quick view and practise about each core e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learning Angular2 From Zero (Entry01)">
+<meta property="og:url" content="http://remo.host/2016/10/01/2016-10-02-learning-angular2-From-0-1/index.html">
+<meta property="og:site_name" content="Remo">
+<meta property="og:description" content="Learning Angular2 from Zero (01) BasicStartThis entry is mainly covered the basic Component, Service, Directives and some tricks. All those are just to have a quick view and practise about each core e">
+<meta property="og:image" content="http://remo.site/img/components.png">
+<meta property="og:updated_time" content="2017-07-16T05:33:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Learning Angular2 From Zero (Entry01)">
+<meta name="twitter:description" content="Learning Angular2 from Zero (01) BasicStartThis entry is mainly covered the basic Component, Service, Directives and some tricks. All those are just to have a quick view and practise about each core e">
+<meta name="twitter:image" content="http://remo.site/img/components.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://remo.host/2016/10/01/2016-10-02-learning-angular2-From-0-1/"/>
+
+
+
+
+
+  <title>Learning Angular2 From Zero (Entry01) | Remo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Remo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://remo.host/2016/10/01/2016-10-02-learning-angular2-From-0-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Remo HU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Remo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Learning Angular2 From Zero (Entry01)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-01T23:00:00+10:00">
+                2016-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Learning-Angular2-from-Zero-01-Basic"><a href="#Learning-Angular2-from-Zero-01-Basic" class="headerlink" title="Learning Angular2 from Zero (01) Basic"></a>Learning Angular2 from Zero (01) Basic</h2><h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><p>This entry is mainly covered the basic <code>Component</code>, <code>Service</code>, <code>Directives</code> and some tricks. All those are just to have a quick view and practise about each core elements.</p>
+<h3 id="1-Component"><a href="#1-Component" class="headerlink" title="1. Component"></a>1. Component</h3><p><code>Component</code> encapsulates the template, data and the behaviour of view. </p>
+<p>Each Angular2 App has at least a <code>root</code> component and each components can have multiple sub-components.</p>
+<p>Like below, the root componnet has three sub-components, which are sidebar, courses and navbar. And also each sub-component can have their child-components, like courses component could have rating components and feedback components.</p>
+<p><img src="http://remo.site/img/components.png" alt="Alt text"></p>
+<h3 id="2-Create-a-Component"><a href="#2-Create-a-Component" class="headerlink" title="2. Create a Component"></a>2. Create a Component</h3><p>Here, I create a Courses component. The name of this file is called <code>courses.component.ts</code> and is located under the <code>./app/</code>.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import &#123;Component&#125; from &apos;angular2/core&apos;;</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">   selector: &apos;courses&apos;,    // To use just like a HTML tag: &lt;courses&gt;&lt;/courses&gt;</div><div class="line">   template: &apos;&lt;h2&gt;Courses&lt;/h2&gt;&apos;    // HTML code here to display the component view</div><div class="line">&#125;)</div><div class="line">export class CoursesComponent &#123; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="3-Using-Component"><a href="#3-Using-Component" class="headerlink" title="3. Using Component"></a>3. Using Component</h3><p>Go to the <code>./app/app.component.ts</code>, and add previous component.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">import &#123;Component&#125; from &apos;angular2/core&apos;;</div><div class="line">import &#123;CoursesComponent&#125; from &apos;./courses.component&apos;;    // Import CoursesComponent.   NOTE: NO &apos;.ts&apos; at end</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">   selector: &apos;my-app&apos;,</div><div class="line">   template: `    // Use backquotes to enable mutiple line code</div><div class="line">    &lt;h2&gt;&#123;&#123; title &#125;&#125;&lt;/h2&gt;    // Interpolation, One way binding.</div><div class="line">    &lt;courses&gt;&lt;/courses&gt;    // Use CoursesComponent here</div><div class="line">   `,</div><div class="line">   directives: [CoursesComponent]    // Important! Add CoursesComponent reference to root component</div><div class="line">&#125;)</div><div class="line">export class AppComponent &#123;</div><div class="line">  title = &quot;The title of this page&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>NOTE: <code>Directive</code> is a class that allow us to extend or control DOM (Document Object Model). Above we defined a new element called <code>courses</code>, so we can use it like HTML tag <code>&lt;courses&gt;&lt;/courses&gt;</code>.</p>
+<h3 id="4-Run-It"><a href="#4-Run-It" class="headerlink" title="4. Run It"></a>4. Run It</h3><p>After you saved the change of <code>app.component.ts</code>, the Angular2 will automatically recognise the code change and complier it as well. The browser will fresh and the new component will displayed corresponding. You can inspect the page DOM by using Chrome developer tools. It will display like this.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;courses&gt;</div><div class="line">  &lt;h2&gt;Courses&lt;/h2&gt;</div><div class="line">&lt;/courses&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="5-More"><a href="#5-More" class="headerlink" title="5. More"></a>5. More</h3><p>5.1 <strong>ngFor</strong></p>
+<p>If there are multiple object need to display in template, <code>*ngFor</code> is the best way to implement it.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">import &#123;Component&#125; from &apos;angular2/core&apos;;</div><div class="line">import &#123;CoursesComponent&#125; from &apos;./courses.component&apos;;</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">   selector: &apos;my-app&apos;,</div><div class="line">   template: `</div><div class="line">    &lt;ul&gt;</div><div class="line">       &lt;li *ngFor=&quot;#course of courses&quot;&gt;    // Use &apos;*ngFor&apos; to display multiple objects, just like &apos;for&apos; loop</div><div class="line">           &#123;&#123; course &#125;&#125;</div><div class="line">       &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">   `,</div><div class="line">   directives: [CoursesComponent]</div><div class="line">&#125;)</div><div class="line">export class AppComponent &#123;</div><div class="line">  courses = [&quot;Course1&quot;, &quot;Course2&quot;, &quot;Course3&quot;];    // Defined three courses</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>5.2 <strong>Service</strong></p>
+<p><code>Service</code> is mainly used to <code>Data Access</code>, <code>Login</code>, <code>Business Logic</code>, and <code>Configuration</code>.</p>
+<p>Let’s create a service called <code>CourseService</code> and the corresponding file named <code>course.service.ts</code> under the <code>./app/</code>. The aim is to provide the data to <code>CourseComponent</code>.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">export class CourseService &#123;</div><div class="line">  getCourses(): string[] &#123;    // The return type is a string array</div><div class="line">      return [&quot;Course1&quot;, &quot;Course2&quot;, &quot;Course3&quot;];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Then, change the <code>courses.component.ts</code>.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">import &#123;Component&#125; from &apos;angular2/core&apos;;</div><div class="line">import &#123;CourseService&#125; from &apos;./course.service&apos;;    // No &apos;.ts&apos; at end</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">   selector: &apos;courses&apos;,</div><div class="line">   template: `</div><div class="line">        &lt;ul&gt;</div><div class="line">           &lt;li *ngFor=&quot;#course of courses&quot;&gt;</div><div class="line">               &#123;&#123; course &#125;&#125;</div><div class="line">           &lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">   `,</div><div class="line">   providers: [CourseService]    // Add dependency</div><div class="line">&#125;)</div><div class="line">export class CoursesComponent &#123;</div><div class="line">  courses;   // To store courses from service</div><div class="line">  </div><div class="line">  constructor(courseService: CourseService) &#123;    // Dependency Injection</div><div class="line">      this.courses = courseService.getCourses();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>NOTE: <a href="http://stackoverflow.com/questions/130794/what-is-dependency-injection" target="_blank" rel="external">Dependency Injection</a></p>
+<p>5.3 <strong>Directive</strong></p>
+<p>Directive is a class that allow us to extend or control DOM (Document Object Model). Below it will create a directive to auto grow the input box.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import &#123;Directive, ElementRef, Renderer&#125; from &apos;angular2/core&apos;</div><div class="line"></div><div class="line">@Directive(&#123;</div><div class="line">    selector: &apos;[autoGrow]&apos;,</div><div class="line">    host: &#123;</div><div class="line">        &apos;(focus)&apos;: &apos;onFocus()&apos;,</div><div class="line">        &apos;(blur)&apos;: &apos;onBlur()&apos;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">export class AutoGrowDirective &#123;</div><div class="line">    constructor(private el: ElementRef, private renderer: Renderer)&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    onFocus()&#123;</div><div class="line">        this.renderer.setElementStyle(this.el.nativeElement, &apos;width&apos;, &apos;200&apos;);</div><div class="line">    &#125;</div><div class="line">    onBlur()&#123;</div><div class="line">        this.renderer.setElementStyle(this.el.nativeElement, &apos;width&apos;, &apos;120&apos;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>And it can be used in <code>CoursesComponent</code> like below:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line">selector: &apos;courses&apos;,</div><div class="line">template: `</div><div class="line">  &lt;h2&gt;Courses&lt;/h2&gt;</div><div class="line">  &#123;&#123; title &#125;&#125;</div><div class="line">  &lt;input type=&quot;text&quot; autoGrow /&gt;</div><div class="line">  &lt;ul&gt;</div><div class="line">      &lt;li *ngFor=&quot;#course of courses&quot;&gt;</div><div class="line">      &#123;&#123; course &#125;&#125;</div><div class="line">      &lt;/li&gt;</div><div class="line">  &lt;/ul&gt;</div><div class="line">  `,</div><div class="line">providers: [CourseService],</div><div class="line">directives: [AutoGrowDirective]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>5.4 <strong>Template</strong> &amp; <strong>Style</strong></p>
+<p>In each component, you can change the <code>template</code> property into <code>templateUrl</code>. This will allow you to create a <code>xxx.component.html</code> file to layout the HTML template separately, as well as <code>stylesheet</code>. Use the <code>CoursesComponent</code> as a example.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">|-- app</div><div class="line">|   |-- courses.component.ts</div><div class="line">|   |-- courses.component.html</div><div class="line">|   |-- courses.component.css</div><div class="line">|   |-- boot.ts</div><div class="line">|   |-- boot.js.map</div><div class="line">|   `-- boot.js</div><div class="line">........</div></pre></td></tr></table></figure></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://www.udemy.com/angular-2-tutorial-for-beginners/" target="_blank" rel="external">Udemy/Mosh Hamedani</a></li>
+<li><a href="https://angular.io" target="_blank" rel="external">Angular2.io</a></li>
+</ul>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>All related code could find in <a href="https://github.com/RemoHz/Angular2-Learning-from-Zero" target="_blank" rel="external">Github</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/29/2016-09-29-learning-angular2-from-0-0/" rel="next" title="Learning Angular2 From Zero (Entry00)">
+                <i class="fa fa-chevron-left"></i> Learning Angular2 From Zero (Entry00)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/05/2016-10-05-git-ignore/" rel="prev" title="Fix untracked files for .gitignore">
+                Fix untracked files for .gitignore <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Remo HU" />
+          <p class="site-author-name" itemprop="name">Remo HU</p>
+           
+              <p class="site-description motion-element" itemprop="description">Remo's Blog</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-Angular2-from-Zero-01-Basic"><span class="nav-number">1.</span> <span class="nav-text">Learning Angular2 from Zero (01) Basic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Start"><span class="nav-number">2.</span> <span class="nav-text">Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Component"><span class="nav-number">2.1.</span> <span class="nav-text">1. Component</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Create-a-Component"><span class="nav-number">2.2.</span> <span class="nav-text">2. Create a Component</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Using-Component"><span class="nav-number">2.3.</span> <span class="nav-text">3. Using Component</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Run-It"><span class="nav-number">2.4.</span> <span class="nav-text">4. Run It</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-More"><span class="nav-number">2.5.</span> <span class="nav-text">5. More</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github"><span class="nav-number">4.</span> <span class="nav-text">Github</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Remo HU</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
