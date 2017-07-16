@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Remo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Remo&apos;s Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Remo">
+<meta property="og:url" content="http://remo.host/page/2/index.html">
+<meta property="og:site_name" content="Remo">
+<meta property="og:description" content="Remo&apos;s Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Remo">
+<meta name="twitter:description" content="Remo&apos;s Blog">
+  
+    <link rel="alternate" href="/atom.xml" title="Remo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Remo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://remo.host"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-2016-09-01-php-crawler" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/01/2016-09-01-php-crawler/" class="article-date">
+  <time datetime="2016-09-01T04:36:10.000Z" itemprop="datePublished">2016-09-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/01/2016-09-01-php-crawler/">PHP Crawler</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="PHP-Crawler"><a href="#PHP-Crawler" class="headerlink" title="PHP Crawler"></a>PHP Crawler</h2><p>Due to my current project, I need to get all units data from <a href="http://www.monash.edu.au/pubs/2016handbooks/units/index-bycode.html" target="_blank" rel="external">Monash University website</a> both by code and faculty.</p>
+<p>As above link, there are not API or web service provided to fetch those data and we must collect those data manually? </p>
+<p>This is qutie common in data collection because the organization do not have the responsibility and duty to create a API for you a specific user.</p>
+<p>So what we need to do is to collect those data by “hand”.</p>
+<p>The hand here is what we called <a href="https://en.wikipedia.org/wiki/Web_crawler" target="_blank" rel="external">web crawler</a>.</p>
+<p>There are heaps of script languages and libs support crawler, but as a PHPer I prefer to use php realize it.</p>
+<p>After take some time to research , I found the <a href="https://github.com/fanfank/phpfetcher" target="_blank" rel="external">Phpfetcher</a> is a qutie simple and easy-to-handled framework. It covered our most requirements like HTTP header and depth search.</p>
+<p>To take the <a href="http://www.monash.edu.au/pubs/2016handbooks/units/index-bycode-a.html" target="_blank" rel="external">Monash website</a> as example, the html code of unit is as below:</p>
+<pre><code>&lt;li&gt;&lt;a class=&quot;fixed&quot; href=&quot;ACB1000.html&quot;&gt;ACB1000&lt;/a&gt; Principles of accounting and finance&lt;/li&gt;
+</code></pre><p>So to get all <code>&lt;li&gt;</code> tags is our mission. Please take care about each of tag here is an object, not array.</p>
+<pre><code>class mycrawler extends Phpfetcher_Crawler_Default {
+    public function handlePage($page) {
+        $fp = fopen(&apos;unitsByCode.csv&apos;, &apos;a&apos;);
+        // Get All li
+        $res = $page-&gt;sel(&apos;//li&apos;);
+        for ($i = 0; $i &lt; count($res); ++$i)
+        {
+            $name = &quot;&quot;;
+            $name = $res[$i]-&gt;plaintext;
+
+            if ($name == &quot;&quot;)
+            continue;
+            // Get &lt;a&gt;
+            $objLi = $res[$i]-&gt;find(&quot;a&quot;);
+
+            for ($j = 0; $j &lt; count($objLi); ++$j)
+            $url = $objLi[$j]-&gt;getAttribute(&apos;href&apos;);
+
+            $compare = substr_compare($name, $url, 0, 7);
+
+            if ($compare == 0)
+            {
+                echo $name.&quot;\n&quot;;
+                echo &quot;http://www.monash.edu.au/pubs/2016handbooks/units/&quot;.$url.&quot;\n\n&quot;;
+                $unit = array($name, &apos;http://www.monash.edu.au/pubs/2016handbooks/units/&apos;.$url);
+                fputcsv($fp, $unit);
+            }
+        }
+        fclose($fp);
+    }
+}
+</code></pre><p>To get complete code in <a href="https://github.com/RemoHz/PHP_crawler_created_by_Phpfetcher" target="_blank" rel="external">GitHub</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://remo.host/2016/09/01/2016-09-01-php-crawler/" data-id="cj569n13m0002u0rn29zkjv6j" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2016-08-26-image-hover" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/26/2016-08-26-image-hover/" class="article-date">
+  <time datetime="2016-08-26T04:36:10.000Z" itemprop="datePublished">2016-08-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/26/2016-08-26-image-hover/">Display image on link hover(CSS)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Display-image-on-link-hover"><a href="#Display-image-on-link-hover" class="headerlink" title="Display image on link hover"></a>Display image on link hover</h2><p>Here is what we want displayed below. When the mouse hover on the QR icon, the QR image will display left beside it for readers to scan.</p>
+<p><img src="http://remo.site/blog/wp-content/uploads/2016/08/hover.png" alt="alt text"></p>
+<p>Actually there two ways to realize it. </p>
+<p>One is using javascript to bind events both in <code>onmouseover</code> and <code>onmouseout</code> of the icon element to detect the mouse change.</p>
+<p>Another method is using pure CSS. Here is the code:</p>
+<pre><code>a:hover {
+    position: relative;
+}
+a:hover:after {
+    content: url(url)            /* Image URL */
+    display: block;
+    position: absolute;
+    left: 50px;                   /* change this value to one that suits you */
+    top: 0px;                     /* change this value to one that suits you */
+</code></pre><p>You could try it in my <a href="http://remo.site" target="_blank" rel="external">home page</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://remo.host/2016/08/26/2016-08-26-image-hover/" data-id="cj569n13e0000u0rnavqkp8u7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2016-08-25-location-evaluation-govhack" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/25/2016-08-25-location-evaluation-govhack/" class="article-date">
+  <time datetime="2016-08-25T04:36:10.000Z" itemprop="datePublished">2016-08-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/25/2016-08-25-location-evaluation-govhack/">Location Evaluation (GovHack 2016)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Location-Evaluation-GovHack-2016"><a href="#Location-Evaluation-GovHack-2016" class="headerlink" title="Location Evaluation (GovHack 2016)"></a>Location Evaluation (GovHack 2016)</h2><p>Due to the Melbourne public security is becoming much worse, there are lots of people like me worrying about the place where we live in. Whether it is safe enough or not. Also for those people who is seeking for the new house, the security of that is a critical part before they make the final decision.</p>
+<p>So what came in my mind is that why not we just create an app to evaluate the property address! And it could be a reference for people to consider.</p>
+<p>Currently, there are two elements involved to generate the final report score, which includes <code>transportation</code> and <code>security</code>.</p>
+<p>The security score is mainly calculated from the government criminal record.</p>
+<p>The convenient score is based on other three interest place addresses. By calculating the travel time between the three paths, the average of that is the convenient score.</p>
+<p>The structure of app is a pure javascript program, and there is no back end server to support. It can run in any client browser directly.</p>
+<p>For more info, see <a href="https://github.com/RemoHz/2016-GovHack-Location-Evaluation" target="_blank" rel="external">Github</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://remo.host/2016/08/25/2016-08-25-location-evaluation-govhack/" data-id="cj569n13j0001u0rnqm7f9rgo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/16/init-post/">init-post</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/16/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/05/2016-11-05-CSS-Position/">CSS Position Property</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/11/2016-10-11-dependency-injection/">What is Dependency Injection (DI) ?</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/10/2016-10-10-learning-angular2-from-0-3/">Learning Angular2 From Zero (Entry03)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Remo HU<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

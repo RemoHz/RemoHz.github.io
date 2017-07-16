@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>What is Dependency Injection (DI) ? | Remo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="What is Dependency Injection (DI) ?During my Angular2 learning journey, I encountered a new word Dependency Injection, which I have no idea at first. And after reviewed the Wiki definition, I felt eve">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is Dependency Injection (DI) ?">
+<meta property="og:url" content="http://remo.host/2016/10/11/2016-10-11-dependency-injection/index.html">
+<meta property="og:site_name" content="Remo">
+<meta property="og:description" content="What is Dependency Injection (DI) ?During my Angular2 learning journey, I encountered a new word Dependency Injection, which I have no idea at first. And after reviewed the Wiki definition, I felt eve">
+<meta property="og:updated_time" content="2017-07-16T05:12:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What is Dependency Injection (DI) ?">
+<meta name="twitter:description" content="What is Dependency Injection (DI) ?During my Angular2 learning journey, I encountered a new word Dependency Injection, which I have no idea at first. And after reviewed the Wiki definition, I felt eve">
+  
+    <link rel="alternate" href="/atom.xml" title="Remo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Remo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://remo.host"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016-10-11-dependency-injection" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/11/2016-10-11-dependency-injection/" class="article-date">
+  <time datetime="2016-10-11T03:36:10.000Z" itemprop="datePublished">2016-10-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      What is Dependency Injection (DI) ?
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="What-is-Dependency-Injection-DI"><a href="#What-is-Dependency-Injection-DI" class="headerlink" title="What is Dependency Injection (DI) ?"></a>What is Dependency Injection (DI) ?</h2><p>During my Angular2 learning journey, I encountered a new word <code>Dependency Injection</code>, which I have no idea at first. And after reviewed the <a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank" rel="external">Wiki</a> definition, I felt even more confused! What’s the magic really is and what does it really do? Fortunately, I finally figure it out based on my hours research. Below is my personal understanding about <code>Dependency Injection</code> (Example language is TypeScript).</p>
+<p>See, let’s create a <code>User</code> class like below.</p>
+<pre><code>export class User {
+    private login: Login;
+    private contact: Contact;
+
+    constructor() {
+        this.login = new Login(&apos;test&apos;, &apos;12345678&apos;);                // username &amp; password
+        this.contact = new Contact(&apos;test@gmail.com&apos;, &apos;Mars&apos;);    // email &amp; address
+    }
+}
+</code></pre><p>When I first learning <code>Object-Oriented</code> programming, I probably will write the above code and think it’s pretty cool. But actually, this is a bad example. What about I wanna change the usernam and password? And also the input is dynamic, not hard code. OK. You may change the code like below.</p>
+<pre><code>export class User {
+    private login: Login;
+    private contact: Contact;
+
+    constructor(username: string, password: string, email: string, address: string) {
+        this.login = new Login(username, password);
+        this.contact = new Contact(email, address);
+    }
+}
+</code></pre><p>I’m one hundred percent sure I will write above code even now. And I’m sure there are many other programmers as well.</p>
+<p>Let us consider one scenario. See if we want to add more fields of <code>Contact</code> class, like phone, country, etc. In that case, we need to change the <code>User</code> class as well. To add corresponding arguments into <code>constructor</code> and assign to <code>new Contact</code>. You may say this is not a big change. But honestly speaking, anytime of the <code>Child constructor</code> changed, the <code>Parent constructor</code> has to be changed. And also considering unit test, the above code is hard to mock the <code>Login</code> and <code>Contact</code> effectively. As a result, here is the magic come out.</p>
+<pre><code>export class User {
+    private login: Login;
+    private contact: Contact;
+
+    constructor(login: Login, contact: Contact) {
+        this.login = login;
+        this.contact = contact;
+    }
+}
+</code></pre><p>Now, <code>User</code> class does not need to know anything about <code>Login</code> and <code>Contact</code>. So if <code>Child constructor</code> changed, no need to change <code>Parent constructor</code>. Awesome! In Typescript you can be written in shorthand like.</p>
+<pre><code>export class User {
+    constructor(private login: Login, private contact: Contact) {
+    }
+}
+</code></pre><p>Cool! Isn’t it? There are just four lines. But you may ask how does those magic happened? How can the <code>User</code> to manage the <code>Login</code> and <code>Contact</code>? Here is the <code>dependency injection framework</code> come out. The above code is just a <code>model</code> of <code>dependency injection</code>. The back-end logic is managed by <code>DI framework</code>, and more specifically it’s the <code>Injector</code> oject, like.</p>
+<pre><code>const injector = new Injector([User, Login, Contact]);
+const user = injector.get(User);
+</code></pre><p>All of the complex work is automatically finished by <code>DI framework</code>. And almost front-end framework support <code>DI</code>, you can just benefited from it and make your code cleaner and more testable.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://remo.host/2016/10/11/2016-10-11-dependency-injection/" data-id="cj569n13w0008u0rne90evqt7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/05/2016-11-05-CSS-Position/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CSS Position Property
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/10/2016-10-10-learning-angular2-from-0-3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Learning Angular2 From Zero (Entry03)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/16/init-post/">init-post</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/16/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/05/2016-11-05-CSS-Position/">CSS Position Property</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/11/2016-10-11-dependency-injection/">What is Dependency Injection (DI) ?</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/10/2016-10-10-learning-angular2-from-0-3/">Learning Angular2 From Zero (Entry03)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Remo HU<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
