@@ -99,7 +99,7 @@
 <meta property="og:url" content="http://remo.host/2016/10/11/2016-10-11-dependency-injection/index.html">
 <meta property="og:site_name" content="Remo">
 <meta property="og:description" content="What is Dependency Injection (DI) ?During my Angular2 learning journey, I encountered a new word Dependency Injection, which I have no idea at first. And after reviewed the Wiki definition, I felt eve">
-<meta property="og:updated_time" content="2017-07-16T05:33:58.000Z">
+<meta property="og:updated_time" content="2017-07-16T06:16:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="What is Dependency Injection (DI) ?">
 <meta name="twitter:description" content="What is Dependency Injection (DI) ?During my Angular2 learning journey, I encountered a new word Dependency Injection, which I have no idea at first. And after reviewed the Wiki definition, I felt eve">
@@ -141,6 +141,15 @@
 
 
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-102642679-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -260,7 +269,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Remo HU">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/new-head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -298,6 +307,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/10/11/2016-10-11-dependency-injection/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/10/11/2016-10-11-dependency-injection/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -322,8 +342,7 @@
         <h2 id="What-is-Dependency-Injection-DI"><a href="#What-is-Dependency-Injection-DI" class="headerlink" title="What is Dependency Injection (DI) ?"></a>What is Dependency Injection (DI) ?</h2><p>During my Angular2 learning journey, I encountered a new word <code>Dependency Injection</code>, which I have no idea at first. And after reviewed the <a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank" rel="external">Wiki</a> definition, I felt even more confused! What’s the magic really is and what does it really do? Fortunately, I finally figure it out based on my hours research. Below is my personal understanding about <code>Dependency Injection</code> (Example language is TypeScript).</p>
 <p>See, let’s create a <code>User</code> class like below.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">export class User &#123;</div><div class="line">	private login: Login;</div><div class="line">	private contact: Contact;</div><div class="line"></div><div class="line">	constructor() &#123;</div><div class="line">		this.login = new Login(&apos;test&apos;, &apos;12345678&apos;);		        // username &amp; password</div><div class="line">		this.contact = new Contact(&apos;test@gmail.com&apos;, &apos;Mars&apos;);	// email &amp; address</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>When I first learning <code>Object-Oriented</code> programming, I probably will write the above code and think it’s pretty cool. But actually, this is a bad example. What about I wanna change the usernam and password? And also the input is dynamic, not hard code. OK. You may change the code like below.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">export class User &#123;</div><div class="line">	private login: Login;</div><div class="line">	private contact: Contact;</div><div class="line"></div><div class="line">	constructor(username: string, password: string, email: string, address: string) &#123;</div><div class="line">		this.login = new Login(username, password);</div><div class="line">		this.contact = new Contact(email, address);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>I’m one hundred percent sure I will write above code even now. And I’m sure there are many other programmers as well.</p>
-<p>Let us consider one scenario. See if we want to add more fields of <code>Contact</code> class, like phone, country, etc. In that case, we need to change the <code>User</code> class as well. To add corresponding arguments into <code>constructor</code> and assign to <code>new Contact</code>. You may say this is not a big change. But honestly speaking, anytime of the <code>Child constructor</code> changed, the <code>Parent constructor</code> has to be changed. And also considering unit test, the above code is hard to mock the <code>Login</code> and <code>Contact</code> effectively. As a result, here is the magic come out.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">export class User &#123;</div><div class="line">	private login: Login;</div><div class="line">	private contact: Contact;</div><div class="line"></div><div class="line">	constructor(login: Login, contact: Contact) &#123;</div><div class="line">		this.login = login;</div><div class="line">		this.contact = contact;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>I’m one hundred percent sure I will write above code even now. And I’m sure there are many other programmers as well.<br><a id="more"></a><br>Let us consider one scenario. See if we want to add more fields of <code>Contact</code> class, like phone, country, etc. In that case, we need to change the <code>User</code> class as well. To add corresponding arguments into <code>constructor</code> and assign to <code>new Contact</code>. You may say this is not a big change. But honestly speaking, anytime of the <code>Child constructor</code> changed, the <code>Parent constructor</code> has to be changed. And also considering unit test, the above code is hard to mock the <code>Login</code> and <code>Contact</code> effectively. As a result, here is the magic come out.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">export class User &#123;</div><div class="line">	private login: Login;</div><div class="line">	private contact: Contact;</div><div class="line"></div><div class="line">	constructor(login: Login, contact: Contact) &#123;</div><div class="line">		this.login = login;</div><div class="line">		this.contact = contact;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>Now, <code>User</code> class does not need to know anything about <code>Login</code> and <code>Contact</code>. So if <code>Child constructor</code> changed, no need to change <code>Parent constructor</code>. Awesome! In Typescript you can be written in shorthand like.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export class User &#123;</div><div class="line">	constructor(private login: Login, private contact: Contact) &#123;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>Cool! Isn’t it? There are just four lines. But you may ask how does those magic happened? How can the <code>User</code> to manage the <code>Login</code> and <code>Contact</code>? Here is the <code>dependency injection framework</code> come out. The above code is just a <code>model</code> of <code>dependency injection</code>. The back-end logic is managed by <code>DI framework</code>, and more specifically it’s the <code>Injector</code> oject, like.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const injector = new Injector([User, Login, Contact]);</div><div class="line">const user = injector.get(User);</div></pre></td></tr></table></figure></p>
 <p>All of the complex work is automatically finished by <code>DI framework</code>. And almost front-end framework support <code>DI</code>, you can just benefited from it and make your code cleaner and more testable.</p>
@@ -401,6 +420,13 @@
           
   <div class="comments" id="comments">
     
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
   </div>
 
 
@@ -436,11 +462,11 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/uploads/new-head.jpg"
                alt="Remo HU" />
           <p class="site-author-name" itemprop="name">Remo HU</p>
            
-              <p class="site-description motion-element" itemprop="description">Remo's Blog</p>
+              <p class="site-description motion-element" itemprop="description">Less is More</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -448,7 +474,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -463,6 +489,35 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/RemoHz" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://au.linkedin.com/in/zhehu" target="_blank" title="LinkedIn">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  LinkedIn
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://remo.site" target="_blank" title="Site">
+                  
+                    <i class="fa fa-fw fa-rocket"></i>
+                  
+                  Site
+                </a>
+              </span>
+            
           
         </div>
 
@@ -517,17 +572,6 @@
   <span class="author" itemprop="copyrightHolder">Remo HU</span>
 </div>
 
-
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
-
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
 
 
         
@@ -623,6 +667,26 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://remohz.disqus.com.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://remo.host/2016/10/11/2016-10-11-dependency-injection/';
+          this.page.identifier = '2016/10/11/2016-10-11-dependency-injection/';
+          this.page.title = 'What is Dependency Injection (DI) ?';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://remohz.disqus.com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -635,10 +699,6 @@
   
 
 
-
-
-
-  
 
 
 
