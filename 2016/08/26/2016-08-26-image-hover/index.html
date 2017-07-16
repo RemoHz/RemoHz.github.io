@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="Remo">
 <meta property="og:description" content="Display image on link hoverHere is what we want displayed below. When the mouse hover on the QR icon, the QR image will display left beside it for readers to scan.  Actually there two ways to realize">
 <meta property="og:image" content="http://remo.site/blog/wp-content/uploads/2016/08/hover.png">
-<meta property="og:updated_time" content="2017-07-16T05:33:13.000Z">
+<meta property="og:updated_time" content="2017-07-16T07:11:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Display image on link hover(CSS)">
 <meta name="twitter:description" content="Display image on link hoverHere is what we want displayed below. When the mouse hover on the QR icon, the QR image will display left beside it for readers to scan.  Actually there two ways to realize">
@@ -345,7 +345,7 @@
 <p><img src="http://remo.site/blog/wp-content/uploads/2016/08/hover.png" alt="alt text"></p>
 <p>Actually there two ways to realize it. </p>
 <p>One is using javascript to bind events both in <code>onmouseover</code> and <code>onmouseout</code> of the icon element to detect the mouse change.</p>
-<p>Another method is using pure CSS. Here is the code:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">a:hover &#123;</div><div class="line">	position: relative;</div><div class="line">&#125;</div><div class="line">a:hover:after &#123;</div><div class="line">	content: url(url)            /* Image URL */</div><div class="line">	display: block;</div><div class="line">	position: absolute;</div><div class="line">	left: 50px;                   /* change this value to one that suits you */</div><div class="line">	top: 0px;                     /* change this value to one that suits you */</div></pre></td></tr></table></figure></p>
+<p>Another method is using pure CSS. Here is the code:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">a:hover &#123;</div><div class="line">	position: relative;</div><div class="line">&#125;</div><div class="line">a:hover:after &#123;</div><div class="line">	content: url(url)            /* Image URL */</div><div class="line">	display: block;</div><div class="line">	position: absolute;</div><div class="line">	left: 50px;                   /* change this value to one that suits you */</div><div class="line">	top: 0px;                     /* change this value to one that suits you */</div></pre></td></tr></table></figure></p>
 <p>You could try it in my <a href="http://remo.site" target="_blank" rel="external">home page</a>.</p>
 
       
@@ -669,7 +669,7 @@
   
 
     
-      <script id="dsq-count-scr" src="https://remohz.disqus.com.disqus.com/count.js" async></script>
+      <script id="dsq-count-scr" src="https://remohz.disqus.com/count.js" async></script>
     
 
     
@@ -680,7 +680,7 @@
           this.page.title = 'Display image on link hover(CSS)';
         };
         var d = document, s = d.createElement('script');
-        s.src = 'https://remohz.disqus.com.disqus.com/embed.js';
+        s.src = 'https://remohz.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
       </script>

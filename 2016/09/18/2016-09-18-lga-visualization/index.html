@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="Remo">
 <meta property="og:description" content="Melbourne local government areas profile VisualizationWith the rapid rise in house prices, more and more citizens tend to invest the real estate. So there is a need for them to visualize which ares ar">
 <meta property="og:image" content="http://remo.site/blog/wp-content/uploads/2016/09/data-e1474195876809.png">
-<meta property="og:updated_time" content="2017-07-16T05:33:25.000Z">
+<meta property="og:updated_time" content="2017-07-16T07:10:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Melbourne LGA Profile Visualization">
 <meta name="twitter:description" content="Melbourne local government areas profile VisualizationWith the rapid rise in house prices, more and more citizens tend to invest the real estate. So there is a need for them to visualize which ares ar">
@@ -345,7 +345,7 @@
 <p>Generally, there are two steps. One is data collection and clean. Another is data visualization.</p>
 <p>After searched in <a href="https://www.data.vic.gov.au/" target="_blank" rel="external">Victorian government data directory</a>, I got the raw data <a href="https://www.data.vic.gov.au/data/dataset/lga-geographical-profiles-2014-beta" target="_blank" rel="external">here</a> which the type is Leaflet default <code>geojson</code>. There are almost 140 attributes inside, which it’s too much for us. So we need to remove the extra column of it. Here we used is the <a href="https://carto.com/" target="_blank" rel="external">Carto</a> which it’s a super hero to handle with geojson file. Below is the final dataset we need.</p>
 <p><img src="http://remo.site/blog/wp-content/uploads/2016/09/data-e1474195876809.png" alt="alt"></p>
-<p>Than, what we need is to customise the Leaflet and import the dataset. Below is the code pieces. You can got the souce code in <a href="https://github.com/RemoHz/Melbourne_LGA_visualization" target="_blank" rel="external">Github</a>.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">info.update = function (props) &#123;</div><div class="line">	this._div.innerHTML = &apos;&lt;h4&gt;Victoria Local Government Areas (LGA) Profile&lt;/h4&gt;&apos; +  (props ?</div><div class="line">		&apos;&lt;b&gt;&apos; + props.lga + &apos;&lt;/b&gt;&apos;</div><div class="line">		+ &apos;&lt;br /&gt;Popular Town: &apos; + props.pop_town</div><div class="line">		+ &apos;&lt;br /&gt;Crime Rank: &apos; + props.crime_rank</div><div class="line">		+ &apos;&lt;br /&gt;Safety Rank: &apos; + props.safe_rank</div><div class="line">		+ &apos;&lt;br /&gt;House Price Rank: &apos; + props.house_price_rank</div><div class="line">		+ &apos;&lt;br /&gt;Median House Price: $&apos; + props.house_price</div><div class="line">	: &apos;Hover over a LGA&apos;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//.........</div><div class="line"></div><div class="line">geojson = L.geoJson(statesData, &#123;</div><div class="line">	style: style,</div><div class="line">	onEachFeature: onEachFeature</div><div class="line">&#125;).addTo(map);</div></pre></td></tr></table></figure></p>
+<p>Than, what we need is to customise the Leaflet and import the dataset. Below is the code pieces. You can got the souce code in <a href="https://github.com/RemoHz/Melbourne_LGA_visualization" target="_blank" rel="external">Github</a>.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">info.update = <span class="function"><span class="keyword">function</span> (<span class="params">props</span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>._div.innerHTML = <span class="string">'&lt;h4&gt;Victoria Local Government Areas (LGA) Profile&lt;/h4&gt;'</span> +  (props ?</div><div class="line">		<span class="string">'&lt;b&gt;'</span> + props.lga + <span class="string">'&lt;/b&gt;'</span></div><div class="line">		+ <span class="string">'&lt;br /&gt;Popular Town: '</span> + props.pop_town</div><div class="line">		+ <span class="string">'&lt;br /&gt;Crime Rank: '</span> + props.crime_rank</div><div class="line">		+ <span class="string">'&lt;br /&gt;Safety Rank: '</span> + props.safe_rank</div><div class="line">		+ <span class="string">'&lt;br /&gt;House Price Rank: '</span> + props.house_price_rank</div><div class="line">		+ <span class="string">'&lt;br /&gt;Median House Price: $'</span> + props.house_price</div><div class="line">	: <span class="string">'Hover over a LGA'</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//.........</span></div><div class="line"></div><div class="line">geojson = L.geoJson(statesData, &#123;</div><div class="line">	<span class="attr">style</span>: style,</div><div class="line">	<span class="attr">onEachFeature</span>: onEachFeature</div><div class="line">&#125;).addTo(map);</div></pre></td></tr></table></figure></p>
 <p>To see live demo in <a href="http://remo.site/vicLga/" target="_blank" rel="external">Here</a>.</p>
 
       
@@ -669,7 +669,7 @@
   
 
     
-      <script id="dsq-count-scr" src="https://remohz.disqus.com.disqus.com/count.js" async></script>
+      <script id="dsq-count-scr" src="https://remohz.disqus.com/count.js" async></script>
     
 
     
@@ -680,7 +680,7 @@
           this.page.title = 'Melbourne LGA Profile Visualization';
         };
         var d = document, s = d.createElement('script');
-        s.src = 'https://remohz.disqus.com.disqus.com/embed.js';
+        s.src = 'https://remohz.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
       </script>
