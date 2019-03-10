@@ -6,10 +6,11 @@
 
 
 <html class="theme-next muse use-motion" lang="en">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
 
@@ -19,8 +20,9 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
 
 
 
@@ -38,46 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -85,8 +48,31 @@
 
 
 
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
 
 
 
@@ -99,6 +85,7 @@
 <meta property="og:url" content="http://remo.host/2016/10/01/2016-10-02-learning-angular2-From-0-1/index.html">
 <meta property="og:site_name" content="Remo">
 <meta property="og:description" content="Learning Angular2 from Zero (01) BasicStartThis entry is mainly covered the basic Component, Service, Directives and some tricks. All those are just to have a quick view and practise about each core e">
+<meta property="og:locale" content="en">
 <meta property="og:image" content="http://remo.site/img/components.png">
 <meta property="og:updated_time" content="2017-07-16T07:08:51.000Z">
 <meta name="twitter:card" content="summary">
@@ -113,9 +100,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: 'Author'
@@ -132,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://remo.host/2016/10/01/2016-10-02-learning-angular2-From-0-1/"/>
+  <link rel="canonical" href="http://remo.host/2016/10/01/2016-10-02-learning-angular2-From-0-1/">
 
 
 
@@ -140,21 +129,6 @@
 
   <title>Learning Angular2 From Zero (Entry01) | Remo</title>
   
-
-
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-102642679-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
 
 
 
@@ -172,19 +146,18 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="header-animation-canvas w-embed" style="position: fixed; height: 100%; width: 100%;">
   <canvas id="header_canvas" style="width: 100%; height: 100%; background: white;"></canvas>
-</div>
-<div class="site-brand-wrapper">
+</div><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Remo</span>
         <span class="logo-line-after"><i></i></span>
@@ -214,7 +187,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             Home
           </a>
@@ -224,19 +197,9 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
           </a>
         </li>
       
@@ -268,13 +231,17 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://remo.host/2016/10/01/2016-10-02-learning-angular2-From-0-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Remo HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/new-head.jpg">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/new-head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -312,17 +279,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/10/01/2016-10-02-learning-angular2-From-0-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/10/01/2016-10-02-learning-angular2-From-0-1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -338,6 +294,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -350,52 +309,40 @@
 <p>Like below, the root componnet has three sub-components, which are sidebar, courses and navbar. And also each sub-component can have their child-components, like courses component could have rating components and feedback components.</p>
 <p><img src="http://remo.site/img/components.png" alt="Alt text"></p>
 <a id="more"></a>
-<h3 id="2-Create-a-Component"><a href="#2-Create-a-Component" class="headerlink" title="2. Create a Component"></a>2. Create a Component</h3><p>Here, I create a Courses component. The name of this file is called <code>courses.component.ts</code> and is located under the <code>./app/</code>.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component&#125; <span class="keyword">from</span> <span class="string">'angular2/core'</span>;</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">   <span class="attr">selector</span>: <span class="string">'courses'</span>,    <span class="comment">// To use just like a HTML tag: &lt;courses&gt;&lt;/courses&gt;</span></div><div class="line">   template: <span class="string">'&lt;h2&gt;Courses&lt;/h2&gt;'</span>    <span class="comment">// HTML code here to display the component view</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CoursesComponent</span> </span>&#123; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="3-Using-Component"><a href="#3-Using-Component" class="headerlink" title="3. Using Component"></a>3. Using Component</h3><p>Go to the <code>./app/app.component.ts</code>, and add previous component.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component&#125; <span class="keyword">from</span> <span class="string">'angular2/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123;CoursesComponent&#125; <span class="keyword">from</span> <span class="string">'./courses.component'</span>;    <span class="comment">// Import CoursesComponent.   <span class="doctag">NOTE:</span> NO '.ts' at end</span></div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">   <span class="attr">selector</span>: <span class="string">'my-app'</span>,</div><div class="line">   <span class="attr">template</span>: <span class="string">`    // Use backquotes to enable mutiple line code</span></div><div class="line">    &lt;h2&gt;&#123;&#123; title &#125;&#125;&lt;/h2&gt;    // Interpolation, One way binding.</div><div class="line">    &lt;courses&gt;&lt;/courses&gt;    // Use CoursesComponent here</div><div class="line">   `,</div><div class="line">   <span class="attr">directives</span>: [CoursesComponent]    <span class="comment">// Important! Add CoursesComponent reference to root component</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> </span>&#123;</div><div class="line">  title = <span class="string">"The title of this page"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-Create-a-Component"><a href="#2-Create-a-Component" class="headerlink" title="2. Create a Component"></a>2. Create a Component</h3><p>Here, I create a Courses component. The name of this file is called <code>courses.component.ts</code> and is located under the <code>./app/</code>.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Component&#125; <span class="keyword">from</span> <span class="string">'angular2/core'</span>;</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">   selector: <span class="string">'courses'</span>,    <span class="comment">// To use just like a HTML tag: &lt;courses&gt;&lt;/courses&gt;</span></span><br><span class="line">   template: <span class="string">'&lt;h2&gt;Courses&lt;/h2&gt;'</span>    <span class="comment">// HTML code here to display the component view</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CoursesComponent</span> </span>&#123; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-Using-Component"><a href="#3-Using-Component" class="headerlink" title="3. Using Component"></a>3. Using Component</h3><p>Go to the <code>./app/app.component.ts</code>, and add previous component.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Component&#125; <span class="keyword">from</span> <span class="string">'angular2/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;CoursesComponent&#125; <span class="keyword">from</span> <span class="string">'./courses.component'</span>;    <span class="comment">// Import CoursesComponent.   <span class="doctag">NOTE:</span> NO '.ts' at end</span></span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">   selector: <span class="string">'my-app'</span>,</span><br><span class="line">   template: <span class="string">`    // Use backquotes to enable mutiple line code</span></span><br><span class="line"><span class="string">    &lt;h2&gt;&#123;&#123; title &#125;&#125;&lt;/h2&gt;    // Interpolation, One way binding.</span></span><br><span class="line"><span class="string">    &lt;courses&gt;&lt;/courses&gt;    // Use CoursesComponent here</span></span><br><span class="line"><span class="string">   `</span>,</span><br><span class="line">   directives: [CoursesComponent]    <span class="comment">// Important! Add CoursesComponent reference to root component</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> </span>&#123;</span><br><span class="line">  title = <span class="string">"The title of this page"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>NOTE: <code>Directive</code> is a class that allow us to extend or control DOM (Document Object Model). Above we defined a new element called <code>courses</code>, so we can use it like HTML tag <code>&lt;courses&gt;&lt;/courses&gt;</code>.</p>
-<h3 id="4-Run-It"><a href="#4-Run-It" class="headerlink" title="4. Run It"></a>4. Run It</h3><p>After you saved the change of <code>app.component.ts</code>, the Angular2 will automatically recognise the code change and complier it as well. The browser will fresh and the new component will displayed corresponding. You can inspect the page DOM by using Chrome developer tools. It will display like this.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">courses</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Courses<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">courses</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="4-Run-It"><a href="#4-Run-It" class="headerlink" title="4. Run It"></a>4. Run It</h3><p>After you saved the change of <code>app.component.ts</code>, the Angular2 will automatically recognise the code change and complier it as well. The browser will fresh and the new component will displayed corresponding. You can inspect the page DOM by using Chrome developer tools. It will display like this.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">courses</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Courses<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">courses</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="5-More"><a href="#5-More" class="headerlink" title="5. More"></a>5. More</h3><p>5.1 <strong>ngFor</strong></p>
-<p>If there are multiple object need to display in template, <code>*ngFor</code> is the best way to implement it.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component&#125; <span class="keyword">from</span> <span class="string">'angular2/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123;CoursesComponent&#125; <span class="keyword">from</span> <span class="string">'./courses.component'</span>;</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">   <span class="attr">selector</span>: <span class="string">'my-app'</span>,</div><div class="line">   <span class="attr">template</span>: <span class="string">`</span></div><div class="line">    &lt;ul&gt;</div><div class="line">       &lt;li *ngFor="#course of courses"&gt;    // Use '*ngFor' to display multiple objects, just like 'for' loop</div><div class="line">           &#123;&#123; course &#125;&#125;</div><div class="line">       &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">   `,</div><div class="line">   <span class="attr">directives</span>: [CoursesComponent]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> </span>&#123;</div><div class="line">  courses = [<span class="string">"Course1"</span>, <span class="string">"Course2"</span>, <span class="string">"Course3"</span>];    <span class="comment">// Defined three courses</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>If there are multiple object need to display in template, <code>*ngFor</code> is the best way to implement it.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Component&#125; <span class="keyword">from</span> <span class="string">'angular2/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;CoursesComponent&#125; <span class="keyword">from</span> <span class="string">'./courses.component'</span>;</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">   selector: <span class="string">'my-app'</span>,</span><br><span class="line">   template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;ul&gt;</span></span><br><span class="line"><span class="string">       &lt;li *ngFor="#course of courses"&gt;    // Use '*ngFor' to display multiple objects, just like 'for' loop</span></span><br><span class="line"><span class="string">           &#123;&#123; course &#125;&#125;</span></span><br><span class="line"><span class="string">       &lt;/li&gt;</span></span><br><span class="line"><span class="string">    &lt;/ul&gt;</span></span><br><span class="line"><span class="string">   `</span>,</span><br><span class="line">   directives: [CoursesComponent]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> </span>&#123;</span><br><span class="line">  courses = [<span class="string">"Course1"</span>, <span class="string">"Course2"</span>, <span class="string">"Course3"</span>];    <span class="comment">// Defined three courses</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>5.2 <strong>Service</strong></p>
 <p><code>Service</code> is mainly used to <code>Data Access</code>, <code>Login</code>, <code>Business Logic</code>, and <code>Configuration</code>.</p>
-<p>Let’s create a service called <code>CourseService</code> and the corresponding file named <code>course.service.ts</code> under the <code>./app/</code>. The aim is to provide the data to <code>CourseComponent</code>.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CourseService</span> </span>&#123;</div><div class="line">  getCourses(): string[] &#123;    <span class="comment">// The return type is a string array</span></div><div class="line">      <span class="keyword">return</span> [<span class="string">"Course1"</span>, <span class="string">"Course2"</span>, <span class="string">"Course3"</span>];</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Then, change the <code>courses.component.ts</code>.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component&#125; <span class="keyword">from</span> <span class="string">'angular2/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123;CourseService&#125; <span class="keyword">from</span> <span class="string">'./course.service'</span>;    <span class="comment">// No '.ts' at end</span></div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">   <span class="attr">selector</span>: <span class="string">'courses'</span>,</div><div class="line">   <span class="attr">template</span>: <span class="string">`</span></div><div class="line">        &lt;ul&gt;</div><div class="line">           &lt;li *ngFor="#course of courses"&gt;</div><div class="line">               &#123;&#123; course &#125;&#125;</div><div class="line">           &lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">   `,</div><div class="line">   <span class="attr">providers</span>: [CourseService]    <span class="comment">// Add dependency</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CoursesComponent</span> </span>&#123;</div><div class="line">  courses;   <span class="comment">// To store courses from service</span></div><div class="line">  </div><div class="line">  <span class="keyword">constructor</span>(courseService: CourseService) &#123;    <span class="comment">// Dependency Injection</span></div><div class="line">      <span class="keyword">this</span>.courses = courseService.getCourses();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>NOTE: <a href="http://stackoverflow.com/questions/130794/what-is-dependency-injection" target="_blank" rel="external">Dependency Injection</a></p>
+<p>Let’s create a service called <code>CourseService</code> and the corresponding file named <code>course.service.ts</code> under the <code>./app/</code>. The aim is to provide the data to <code>CourseComponent</code>.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CourseService</span> </span>&#123;</span><br><span class="line">  getCourses(): string[] &#123;    <span class="comment">// The return type is a string array</span></span><br><span class="line">      <span class="keyword">return</span> [<span class="string">"Course1"</span>, <span class="string">"Course2"</span>, <span class="string">"Course3"</span>];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Then, change the <code>courses.component.ts</code>.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Component&#125; <span class="keyword">from</span> <span class="string">'angular2/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;CourseService&#125; <span class="keyword">from</span> <span class="string">'./course.service'</span>;    <span class="comment">// No '.ts' at end</span></span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">   selector: <span class="string">'courses'</span>,</span><br><span class="line">   template: <span class="string">`</span></span><br><span class="line"><span class="string">        &lt;ul&gt;</span></span><br><span class="line"><span class="string">           &lt;li *ngFor="#course of courses"&gt;</span></span><br><span class="line"><span class="string">               &#123;&#123; course &#125;&#125;</span></span><br><span class="line"><span class="string">           &lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;/ul&gt;</span></span><br><span class="line"><span class="string">   `</span>,</span><br><span class="line">   providers: [CourseService]    <span class="comment">// Add dependency</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">CoursesComponent</span> </span>&#123;</span><br><span class="line">  courses;   <span class="comment">// To store courses from service</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">constructor</span>(courseService: CourseService) &#123;    <span class="comment">// Dependency Injection</span></span><br><span class="line">      <span class="keyword">this</span>.courses = courseService.getCourses();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>NOTE: <a href="http://stackoverflow.com/questions/130794/what-is-dependency-injection" target="_blank" rel="noopener">Dependency Injection</a></p>
 <p>5.3 <strong>Directive</strong></p>
-<p>Directive is a class that allow us to extend or control DOM (Document Object Model). Below it will create a directive to auto grow the input box.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Directive, ElementRef, Renderer&#125; <span class="keyword">from</span> <span class="string">'angular2/core'</span></div><div class="line"></div><div class="line">@Directive(&#123;</div><div class="line">    <span class="attr">selector</span>: <span class="string">'[autoGrow]'</span>,</div><div class="line">    <span class="attr">host</span>: &#123;</div><div class="line">        <span class="string">'(focus)'</span>: <span class="string">'onFocus()'</span>,</div><div class="line">        <span class="string">'(blur)'</span>: <span class="string">'onBlur()'</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AutoGrowDirective</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(private el: ElementRef, private renderer: Renderer)&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    onFocus()&#123;</div><div class="line">        <span class="keyword">this</span>.renderer.setElementStyle(<span class="keyword">this</span>.el.nativeElement, <span class="string">'width'</span>, <span class="string">'200'</span>);</div><div class="line">    &#125;</div><div class="line">    onBlur()&#123;</div><div class="line">        <span class="keyword">this</span>.renderer.setElementStyle(<span class="keyword">this</span>.el.nativeElement, <span class="string">'width'</span>, <span class="string">'120'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Directive is a class that allow us to extend or control DOM (Document Object Model). Below it will create a directive to auto grow the input box.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Directive, ElementRef, Renderer&#125; <span class="keyword">from</span> <span class="string">'angular2/core'</span></span><br><span class="line"></span><br><span class="line">@Directive(&#123;</span><br><span class="line">    selector: <span class="string">'[autoGrow]'</span>,</span><br><span class="line">    host: &#123;</span><br><span class="line">        <span class="string">'(focus)'</span>: <span class="string">'onFocus()'</span>,</span><br><span class="line">        <span class="string">'(blur)'</span>: <span class="string">'onBlur()'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AutoGrowDirective</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(private el: ElementRef, private renderer: Renderer)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    onFocus()&#123;</span><br><span class="line">        <span class="keyword">this</span>.renderer.setElementStyle(<span class="keyword">this</span>.el.nativeElement, <span class="string">'width'</span>, <span class="string">'200'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    onBlur()&#123;</span><br><span class="line">        <span class="keyword">this</span>.renderer.setElementStyle(<span class="keyword">this</span>.el.nativeElement, <span class="string">'width'</span>, <span class="string">'120'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>And it can be used in <code>CoursesComponent</code> like below:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line"><span class="attr">selector</span>: <span class="string">'courses'</span>,</div><div class="line"><span class="attr">template</span>: <span class="string">`</span></div><div class="line">  &lt;h2&gt;Courses&lt;/h2&gt;</div><div class="line">  &#123;&#123; title &#125;&#125;</div><div class="line">  &lt;input type="text" autoGrow /&gt;</div><div class="line">  &lt;ul&gt;</div><div class="line">      &lt;li *ngFor="#course of courses"&gt;</div><div class="line">      &#123;&#123; course &#125;&#125;</div><div class="line">      &lt;/li&gt;</div><div class="line">  &lt;/ul&gt;</div><div class="line">  `,</div><div class="line"><span class="attr">providers</span>: [CourseService],</div><div class="line"><span class="attr">directives</span>: [AutoGrowDirective]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Component(&#123;</span><br><span class="line">selector: <span class="string">'courses'</span>,</span><br><span class="line">template: <span class="string">`</span></span><br><span class="line"><span class="string">  &lt;h2&gt;Courses&lt;/h2&gt;</span></span><br><span class="line"><span class="string">  &#123;&#123; title &#125;&#125;</span></span><br><span class="line"><span class="string">  &lt;input type="text" autoGrow /&gt;</span></span><br><span class="line"><span class="string">  &lt;ul&gt;</span></span><br><span class="line"><span class="string">      &lt;li *ngFor="#course of courses"&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123; course &#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;/li&gt;</span></span><br><span class="line"><span class="string">  &lt;/ul&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">providers: [CourseService],</span><br><span class="line">directives: [AutoGrowDirective]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>5.4 <strong>Template</strong> &amp; <strong>Style</strong></p>
-<p>In each component, you can change the <code>template</code> property into <code>templateUrl</code>. This will allow you to create a <code>xxx.component.html</code> file to layout the HTML template separately, as well as <code>stylesheet</code>. Use the <code>CoursesComponent</code> as a example.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">|-- app</div><div class="line">|   |-- courses.component.ts</div><div class="line">|   |-- courses.component.html</div><div class="line">|   |-- courses.component.css</div><div class="line">|   |-- boot.ts</div><div class="line">|   |-- boot.js.map</div><div class="line">|   `-- boot.js</div><div class="line">........</div></pre></td></tr></table></figure></p>
+<p>In each component, you can change the <code>template</code> property into <code>templateUrl</code>. This will allow you to create a <code>xxx.component.html</code> file to layout the HTML template separately, as well as <code>stylesheet</code>. Use the <code>CoursesComponent</code> as a example.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">|-- app</span><br><span class="line">|   |-- courses.component.ts</span><br><span class="line">|   |-- courses.component.html</span><br><span class="line">|   |-- courses.component.css</span><br><span class="line">|   |-- boot.ts</span><br><span class="line">|   |-- boot.js.map</span><br><span class="line">|   `-- boot.js</span><br><span class="line">........</span><br></pre></td></tr></table></figure></p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a href="https://www.udemy.com/angular-2-tutorial-for-beginners/" target="_blank" rel="external">Udemy/Mosh Hamedani</a></li>
-<li><a href="https://angular.io" target="_blank" rel="external">Angular2.io</a></li>
+<li><a href="https://www.udemy.com/angular-2-tutorial-for-beginners/" target="_blank" rel="noopener">Udemy/Mosh Hamedani</a></li>
+<li><a href="https://angular.io" target="_blank" rel="noopener">Angular2.io</a></li>
 </ul>
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>All related code could find in <a href="https://github.com/RemoHz/Angular2-Learning-from-Zero" target="_blank" rel="external">Github</a></p>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>All related code could find in <a href="https://github.com/RemoHz/Angular2-Learning-from-Zero" target="_blank" rel="noopener">Github</a></p>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -429,6 +376,10 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -444,16 +395,9 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
-  </div>
+
+  
+
 
 
         </div>
@@ -476,86 +420,73 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             Table of Contents
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             Overview
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/uploads/new-head.jpg"
-               alt="Remo HU" />
-          <p class="site-author-name" itemprop="name">Remo HU</p>
-           
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/new-head.jpg" alt="Remo HU">
+            
+              <p class="site-author-name" itemprop="name">Remo HU</p>
               <p class="site-description motion-element" itemprop="description">Less is More</p>
-          
-        </div>
-        <nav class="site-state motion-element">
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">11</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/RemoHz" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://remo.site" target="_blank" title="Portfolio">
+                      
+                        <i class="fa fa-fw fa-rocket"></i>Portfolio</a>
+                  </span>
+                
             </div>
           
 
           
+          
+
+          
+          
 
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/RemoHz" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://au.linkedin.com/in/zhehu" target="_blank" title="LinkedIn">
-                  
-                    <i class="fa fa-fw fa-linkedin"></i>
-                  
-                  LinkedIn
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://remo.site" target="_blank" title="Site">
-                  
-                    <i class="fa fa-fw fa-rocket"></i>
-                  
-                  Site
-                </a>
-              </span>
-            
-          
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -588,19 +519,36 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Remo HU</span>
+
+  
 </div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
 
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -611,6 +559,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -645,72 +595,64 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-
-
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
-  <script async="" src="/js/src/flourish.js"></script>
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
 
-
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
 
   
 
-    
-      <script id="dsq-count-scr" src="https://remohz.disqus.com/count.js" async></script>
-    
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://remo.host/2016/10/01/2016-10-02-learning-angular2-From-0-1/';
-          this.page.identifier = '2016/10/01/2016-10-02-learning-angular2-From-0-1/';
-          this.page.title = 'Learning Angular2 From Zero (Entry01)';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://remohz.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script async src="/js/src/flourish.js"></script>
+
+
+
+  
+
 
   
 
@@ -729,6 +671,16 @@
 
 
 
+  
+
+
+
+
+
+
+
+
+
 
 
 
@@ -742,6 +694,9 @@
 
   
 
+  
+
+  
   
 
   

@@ -6,10 +6,11 @@
 
 
 <html class="theme-next muse use-motion" lang="en">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
 
@@ -19,8 +20,9 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
 
 
 
@@ -38,46 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -85,8 +48,31 @@
 
 
 
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
 
 
 
@@ -99,6 +85,7 @@
 <meta property="og:url" content="http://remo.host/2016/09/18/2016-09-18-lga-visualization/index.html">
 <meta property="og:site_name" content="Remo">
 <meta property="og:description" content="Melbourne local government areas profile VisualizationWith the rapid rise in house prices, more and more citizens tend to invest the real estate. So there is a need for them to visualize which ares ar">
+<meta property="og:locale" content="en">
 <meta property="og:image" content="http://remo.site/blog/wp-content/uploads/2016/09/data-e1474195876809.png">
 <meta property="og:updated_time" content="2017-07-16T07:10:40.000Z">
 <meta name="twitter:card" content="summary">
@@ -113,9 +100,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: 'Author'
@@ -132,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://remo.host/2016/09/18/2016-09-18-lga-visualization/"/>
+  <link rel="canonical" href="http://remo.host/2016/09/18/2016-09-18-lga-visualization/">
 
 
 
@@ -140,21 +129,6 @@
 
   <title>Melbourne LGA Profile Visualization | Remo</title>
   
-
-
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-102642679-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
 
 
 
@@ -172,19 +146,18 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="header-animation-canvas w-embed" style="position: fixed; height: 100%; width: 100%;">
   <canvas id="header_canvas" style="width: 100%; height: 100%; background: white;"></canvas>
-</div>
-<div class="site-brand-wrapper">
+</div><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Remo</span>
         <span class="logo-line-after"><i></i></span>
@@ -214,7 +187,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             Home
           </a>
@@ -224,19 +197,9 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
           </a>
         </li>
       
@@ -268,13 +231,17 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://remo.host/2016/09/18/2016-09-18-lga-visualization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Remo HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/new-head.jpg">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/new-head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -312,17 +279,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/09/18/2016-09-18-lga-visualization/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/09/18/2016-09-18-lga-visualization/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -338,42 +294,33 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <h2 id="Melbourne-local-government-areas-profile-Visualization"><a href="#Melbourne-local-government-areas-profile-Visualization" class="headerlink" title="Melbourne local government areas profile Visualization"></a>Melbourne local government areas profile Visualization</h2><p>With the rapid rise in house prices, more and more citizens tend to invest the real estate. So there is a need for them to visualize which ares are worth to invest more and can get more return in the future. Therefore I plan to create an app to present the data visualization and provide references for them to consider. The tools I used is <a href="http://leafletjs.com/" target="_blank" rel="external">Leaflet</a> and <a href="https://carto.com/" target="_blank" rel="external">Carto</a>.</p>
+        <h2 id="Melbourne-local-government-areas-profile-Visualization"><a href="#Melbourne-local-government-areas-profile-Visualization" class="headerlink" title="Melbourne local government areas profile Visualization"></a>Melbourne local government areas profile Visualization</h2><p>With the rapid rise in house prices, more and more citizens tend to invest the real estate. So there is a need for them to visualize which ares are worth to invest more and can get more return in the future. Therefore I plan to create an app to present the data visualization and provide references for them to consider. The tools I used is <a href="http://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a> and <a href="https://carto.com/" target="_blank" rel="noopener">Carto</a>.</p>
 <p>Generally, there are two steps. One is data collection and clean. Another is data visualization.</p>
-<p>After searched in <a href="https://www.data.vic.gov.au/" target="_blank" rel="external">Victorian government data directory</a>, I got the raw data <a href="https://www.data.vic.gov.au/data/dataset/lga-geographical-profiles-2014-beta" target="_blank" rel="external">here</a> which the type is Leaflet default <code>geojson</code>. There are almost 140 attributes inside, which it’s too much for us. So we need to remove the extra column of it. Here we used is the <a href="https://carto.com/" target="_blank" rel="external">Carto</a> which it’s a super hero to handle with geojson file. Below is the final dataset we need.</p>
+<p>After searched in <a href="https://www.data.vic.gov.au/" target="_blank" rel="noopener">Victorian government data directory</a>, I got the raw data <a href="https://www.data.vic.gov.au/data/dataset/lga-geographical-profiles-2014-beta" target="_blank" rel="noopener">here</a> which the type is Leaflet default <code>geojson</code>. There are almost 140 attributes inside, which it’s too much for us. So we need to remove the extra column of it. Here we used is the <a href="https://carto.com/" target="_blank" rel="noopener">Carto</a> which it’s a super hero to handle with geojson file. Below is the final dataset we need.</p>
 <p><img src="http://remo.site/blog/wp-content/uploads/2016/09/data-e1474195876809.png" alt="alt"></p>
-<p>Than, what we need is to customise the Leaflet and import the dataset. Below is the code pieces. You can got the souce code in <a href="https://github.com/RemoHz/Melbourne_LGA_visualization" target="_blank" rel="external">Github</a>.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">info.update = <span class="function"><span class="keyword">function</span> (<span class="params">props</span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>._div.innerHTML = <span class="string">'&lt;h4&gt;Victoria Local Government Areas (LGA) Profile&lt;/h4&gt;'</span> +  (props ?</div><div class="line">		<span class="string">'&lt;b&gt;'</span> + props.lga + <span class="string">'&lt;/b&gt;'</span></div><div class="line">		+ <span class="string">'&lt;br /&gt;Popular Town: '</span> + props.pop_town</div><div class="line">		+ <span class="string">'&lt;br /&gt;Crime Rank: '</span> + props.crime_rank</div><div class="line">		+ <span class="string">'&lt;br /&gt;Safety Rank: '</span> + props.safe_rank</div><div class="line">		+ <span class="string">'&lt;br /&gt;House Price Rank: '</span> + props.house_price_rank</div><div class="line">		+ <span class="string">'&lt;br /&gt;Median House Price: $'</span> + props.house_price</div><div class="line">	: <span class="string">'Hover over a LGA'</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//.........</span></div><div class="line"></div><div class="line">geojson = L.geoJson(statesData, &#123;</div><div class="line">	<span class="attr">style</span>: style,</div><div class="line">	<span class="attr">onEachFeature</span>: onEachFeature</div><div class="line">&#125;).addTo(map);</div></pre></td></tr></table></figure></p>
-<p>To see live demo in <a href="http://remo.site/vicLga/" target="_blank" rel="external">Here</a>.</p>
+<p>Than, what we need is to customise the Leaflet and import the dataset. Below is the code pieces. You can got the souce code in <a href="https://github.com/RemoHz/Melbourne_LGA_visualization" target="_blank" rel="noopener">Github</a>.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">info.update = <span class="function"><span class="keyword">function</span> (<span class="params">props</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>._div.innerHTML = <span class="string">'&lt;h4&gt;Victoria Local Government Areas (LGA) Profile&lt;/h4&gt;'</span> +  (props ?</span><br><span class="line">		<span class="string">'&lt;b&gt;'</span> + props.lga + <span class="string">'&lt;/b&gt;'</span></span><br><span class="line">		+ <span class="string">'&lt;br /&gt;Popular Town: '</span> + props.pop_town</span><br><span class="line">		+ <span class="string">'&lt;br /&gt;Crime Rank: '</span> + props.crime_rank</span><br><span class="line">		+ <span class="string">'&lt;br /&gt;Safety Rank: '</span> + props.safe_rank</span><br><span class="line">		+ <span class="string">'&lt;br /&gt;House Price Rank: '</span> + props.house_price_rank</span><br><span class="line">		+ <span class="string">'&lt;br /&gt;Median House Price: $'</span> + props.house_price</span><br><span class="line">	: <span class="string">'Hover over a LGA'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//.........</span></span><br><span class="line"></span><br><span class="line">geojson = L.geoJson(statesData, &#123;</span><br><span class="line">	style: style,</span><br><span class="line">	onEachFeature: onEachFeature</span><br><span class="line">&#125;).addTo(map);</span><br></pre></td></tr></table></figure></p>
+<p>To see live demo in <a href="http://remo.site/vicLga/" target="_blank" rel="noopener">Here</a>.</p>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -407,6 +354,10 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -422,16 +373,9 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
-  </div>
+
+  
+
 
 
         </div>
@@ -454,86 +398,73 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             Table of Contents
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             Overview
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/uploads/new-head.jpg"
-               alt="Remo HU" />
-          <p class="site-author-name" itemprop="name">Remo HU</p>
-           
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/new-head.jpg" alt="Remo HU">
+            
+              <p class="site-author-name" itemprop="name">Remo HU</p>
               <p class="site-description motion-element" itemprop="description">Less is More</p>
-          
-        </div>
-        <nav class="site-state motion-element">
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">11</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/RemoHz" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://remo.site" target="_blank" title="Portfolio">
+                      
+                        <i class="fa fa-fw fa-rocket"></i>Portfolio</a>
+                  </span>
+                
             </div>
           
 
           
+          
+
+          
+          
 
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/RemoHz" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://au.linkedin.com/in/zhehu" target="_blank" title="LinkedIn">
-                  
-                    <i class="fa fa-fw fa-linkedin"></i>
-                  
-                  LinkedIn
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://remo.site" target="_blank" title="Site">
-                  
-                    <i class="fa fa-fw fa-rocket"></i>
-                  
-                  Site
-                </a>
-              </span>
-            
-          
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -566,19 +497,36 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Remo HU</span>
+
+  
 </div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
 
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -589,6 +537,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -623,72 +573,64 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-
-
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
-  <script async="" src="/js/src/flourish.js"></script>
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
 
-
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
 
   
 
-    
-      <script id="dsq-count-scr" src="https://remohz.disqus.com/count.js" async></script>
-    
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://remo.host/2016/09/18/2016-09-18-lga-visualization/';
-          this.page.identifier = '2016/09/18/2016-09-18-lga-visualization/';
-          this.page.title = 'Melbourne LGA Profile Visualization';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://remohz.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script async src="/js/src/flourish.js"></script>
+
+
+
+  
+
 
   
 
@@ -707,6 +649,16 @@
 
 
 
+  
+
+
+
+
+
+
+
+
+
 
 
 
@@ -720,6 +672,9 @@
 
   
 
+  
+
+  
   
 
   

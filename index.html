@@ -6,10 +6,11 @@
 
 
 <html class="theme-next muse use-motion" lang="en">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
 
 
 
@@ -19,8 +20,9 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
 
 
 
@@ -38,46 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -85,8 +48,31 @@
 
 
 
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
 
 
 
@@ -99,6 +85,7 @@
 <meta property="og:url" content="http://remo.host/index.html">
 <meta property="og:site_name" content="Remo">
 <meta property="og:description" content="Less is More">
+<meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Remo">
 <meta name="twitter:description" content="Less is More">
@@ -110,9 +97,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: 'Author'
@@ -129,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="http://remo.host/"/>
+  <link rel="canonical" href="http://remo.host/">
 
 
 
@@ -137,21 +126,6 @@
 
   <title>Remo</title>
   
-
-
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-102642679-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
 
 
 
@@ -170,20 +144,18 @@
   
 
   <div class="container sidebar-position-left 
-   page-home 
- ">
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="header-animation-canvas w-embed" style="position: fixed; height: 100%; width: 100%;">
   <canvas id="header_canvas" style="width: 100%; height: 100%; background: white;"></canvas>
-</div>
-<div class="site-brand-wrapper">
+</div><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Remo</span>
         <span class="logo-line-after"><i></i></span>
@@ -213,7 +185,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             Home
           </a>
@@ -223,19 +195,9 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
           </a>
         </li>
       
@@ -267,13 +229,17 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://remo.host/2016/11/05/2016-11-05-CSS-Position/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Remo HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/new-head.jpg">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/new-head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -313,17 +279,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/11/05/2016-11-05-CSS-Position/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/11/05/2016-11-05-CSS-Position/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -339,6 +294,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -357,19 +315,16 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -383,6 +338,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -395,13 +354,17 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://remo.host/2016/10/11/2016-10-11-dependency-injection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Remo HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/new-head.jpg">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/new-head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -441,17 +404,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/10/11/2016-10-11-dependency-injection/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/10/11/2016-10-11-dependency-injection/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -467,6 +419,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -474,9 +429,9 @@
 
       
         
-          <h2 id="What-is-Dependency-Injection-DI"><a href="#What-is-Dependency-Injection-DI" class="headerlink" title="What is Dependency Injection (DI) ?"></a>What is Dependency Injection (DI) ?</h2><p>During my Angular2 learning journey, I encountered a new word <code>Dependency Injection</code>, which I have no idea at first. And after reviewed the <a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank" rel="external">Wiki</a> definition, I felt even more confused! What’s the magic really is and what does it really do? Fortunately, I finally figure it out based on my hours research. Below is my personal understanding about <code>Dependency Injection</code> (Example language is TypeScript).</p>
-<p>See, let’s create a <code>User</code> class like below.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">	private login: Login;</div><div class="line">	private contact: Contact;</div><div class="line"></div><div class="line">	<span class="keyword">constructor</span>() &#123;</div><div class="line">		<span class="keyword">this</span>.login = <span class="keyword">new</span> Login(<span class="string">'test'</span>, <span class="string">'12345678'</span>);		        <span class="comment">// username &amp; password</span></div><div class="line">		<span class="keyword">this</span>.contact = <span class="keyword">new</span> Contact(<span class="string">'test@gmail.com'</span>, <span class="string">'Mars'</span>);	<span class="comment">// email &amp; address</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>When I first learning <code>Object-Oriented</code> programming, I probably will write the above code and think it’s pretty cool. But actually, this is a bad example. What about I wanna change the usernam and password? And also the input is dynamic, not hard code. OK. You may change the code like below.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">	private login: Login;</div><div class="line">	private contact: Contact;</div><div class="line"></div><div class="line">	<span class="keyword">constructor</span>(username: string, password: string, email: string, address: string) &#123;</div><div class="line">		<span class="keyword">this</span>.login = <span class="keyword">new</span> Login(username, password);</div><div class="line">		<span class="keyword">this</span>.contact = <span class="keyword">new</span> Contact(email, address);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+          <h2 id="What-is-Dependency-Injection-DI"><a href="#What-is-Dependency-Injection-DI" class="headerlink" title="What is Dependency Injection (DI) ?"></a>What is Dependency Injection (DI) ?</h2><p>During my Angular2 learning journey, I encountered a new word <code>Dependency Injection</code>, which I have no idea at first. And after reviewed the <a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank" rel="noopener">Wiki</a> definition, I felt even more confused! What’s the magic really is and what does it really do? Fortunately, I finally figure it out based on my hours research. Below is my personal understanding about <code>Dependency Injection</code> (Example language is TypeScript).</p>
+<p>See, let’s create a <code>User</code> class like below.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">	private login: Login;</span><br><span class="line">	private contact: Contact;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">constructor</span>() &#123;</span><br><span class="line">		<span class="keyword">this</span>.login = <span class="keyword">new</span> Login(<span class="string">'test'</span>, <span class="string">'12345678'</span>);		        <span class="comment">// username &amp; password</span></span><br><span class="line">		<span class="keyword">this</span>.contact = <span class="keyword">new</span> Contact(<span class="string">'test@gmail.com'</span>, <span class="string">'Mars'</span>);	<span class="comment">// email &amp; address</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>When I first learning <code>Object-Oriented</code> programming, I probably will write the above code and think it’s pretty cool. But actually, this is a bad example. What about I wanna change the usernam and password? And also the input is dynamic, not hard code. OK. You may change the code like below.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">	private login: Login;</span><br><span class="line">	private contact: Contact;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">constructor</span>(username: string, password: string, email: string, address: string) &#123;</span><br><span class="line">		<span class="keyword">this</span>.login = <span class="keyword">new</span> Login(username, password);</span><br><span class="line">		<span class="keyword">this</span>.contact = <span class="keyword">new</span> Contact(email, address);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>I’m one hundred percent sure I will write above code even now. And I’m sure there are many other programmers as well.<br>
           <!--noindex-->
           <div class="post-button text-center">
@@ -487,19 +442,16 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -513,6 +465,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -525,13 +481,17 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://remo.host/2016/10/10/2016-10-10-learning-angular2-from-0-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Remo HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/new-head.jpg">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/new-head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -571,17 +531,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/10/10/2016-10-10-learning-angular2-from-0-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/10/10/2016-10-10-learning-angular2-from-0-3/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -597,6 +546,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -617,18 +569,15 @@
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -642,6 +591,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -654,13 +607,17 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://remo.host/2016/10/07/2016-10-07-learning-angular2-from-0-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Remo HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/new-head.jpg">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/new-head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -700,17 +657,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/10/07/2016-10-07-learning-angular2-from-0-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/10/07/2016-10-07-learning-angular2-from-0-2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -726,6 +672,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -734,7 +683,7 @@
       
         
           <h2 id="Learning-Angular2-from-Zero-02-Data-Binding"><a href="#Learning-Angular2-from-Zero-02-Data-Binding" class="headerlink" title="Learning Angular2 from Zero (02) Data Binding"></a>Learning Angular2 from Zero (02) Data Binding</h2><h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><p>This entry is mainly covered the Angular2 data binding, which are <code>One-way binding</code> and <code>Two-way binding</code>.</p>
-<h3 id="1-One-way-binding"><a href="#1-One-way-binding" class="headerlink" title="1. One way binding"></a>1. One way binding</h3><p>There are three ways to implement one way binding, which are <code>Interpolation</code>, <code>DOM property binding</code> and <code>bind-DOM</code>. Those three ways are technically equal. Just like below.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component&#125; <span class="keyword">from</span> <span class="string">'angular2/core'</span>;</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">     <span class="attr">selector</span>: <span class="string">'my-app'</span>,</div><div class="line">     <span class="attr">template</span>: <span class="string">`</span></div><div class="line">      &lt;img src="&#123;&#123; imageUrl &#125;&#125;" /&gt;    // Interpolation, recommend use to load dynamic value</div><div class="line">      &lt;img [src]="imageUrl" /&gt;        // DOM property binding</div><div class="line">      &lt;img bind-src="imageUrl" /&gt;     // bind-DOM, rare to use</div><div class="line">     `</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> </span>&#123;</div><div class="line">    imageUrl = <span class="string">"path to the image"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="1-One-way-binding"><a href="#1-One-way-binding" class="headerlink" title="1. One way binding"></a>1. One way binding</h3><p>There are three ways to implement one way binding, which are <code>Interpolation</code>, <code>DOM property binding</code> and <code>bind-DOM</code>. Those three ways are technically equal. Just like below.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Component&#125; <span class="keyword">from</span> <span class="string">'angular2/core'</span>;</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">     selector: <span class="string">'my-app'</span>,</span><br><span class="line">     template: <span class="string">`</span></span><br><span class="line"><span class="string">      &lt;img src="&#123;&#123; imageUrl &#125;&#125;" /&gt;    // Interpolation, recommend use to load dynamic value</span></span><br><span class="line"><span class="string">      &lt;img [src]="imageUrl" /&gt;        // DOM property binding</span></span><br><span class="line"><span class="string">      &lt;img bind-src="imageUrl" /&gt;     // bind-DOM, rare to use</span></span><br><span class="line"><span class="string">     `</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> </span>&#123;</span><br><span class="line">    imageUrl = <span class="string">"path to the image"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>If the component property changed, the value of DOM will change automatically. BUT if the value of DOM changed, the component property will not changed corresponding. This is called <code>One-way bind</code>.</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -746,18 +695,15 @@
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -771,6 +717,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -783,13 +733,17 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://remo.host/2016/10/05/2016-10-05-git-ignore/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Remo HU">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/new-head.jpg">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/new-head.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -829,17 +783,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/10/05/2016-10-05-git-ignore/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/10/05/2016-10-05-git-ignore/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -855,6 +798,9 @@
       </header>
     
 
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -864,25 +810,22 @@
         
           
             <h2 id="Fix-untracked-files-for-gitignore"><a href="#Fix-untracked-files-for-gitignore" class="headerlink" title="Fix untracked files for .gitignore"></a>Fix untracked files for .gitignore</h2><p>When you use <code>git</code> to store your codebase, the <code>.gitignore</code> file is really important. It can help you to untrack unrelated file, like some medium compiled and auto-generated files.</p>
-<p>Basically, when you initail the git repository, the <code>.gitignore</code> will automatically created. You can add pattern to ignore files like below.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.DS_Store</div><div class="line">*.component.js</div><div class="line">*.component.js.map</div></pre></td></tr></table></figure></p>
-<p>But sometimes, those junk files will be created during your development and will be tracked as well (Always happen when you not add the pattern to <code>.gitignore</code> during initail stage). So we need to fix problem and untrack those files.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;git rm -r --cached .     // Clean all tracked files</div><div class="line">&gt;git add .                // Track all files except .gitignore patterns</div><div class="line">&gt;git commit -m <span class="string">"fixed untracked files"</span>  // Commit new tracked files</div></pre></td></tr></table></figure></p>
+<p>Basically, when you initail the git repository, the <code>.gitignore</code> will automatically created. You can add pattern to ignore files like below.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">*.component.js</span><br><span class="line">*.component.js.map</span><br></pre></td></tr></table></figure></p>
+<p>But sometimes, those junk files will be created during your development and will be tracked as well (Always happen when you not add the pattern to <code>.gitignore</code> during initail stage). So we need to fix problem and untrack those files.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;git rm -r --cached .     // Clean all tracked files</span><br><span class="line">&gt;git add .                // Track all files except .gitignore patterns</span><br><span class="line">&gt;git commit -m <span class="string">"fixed untracked files"</span>  // Commit new tracked files</span><br></pre></td></tr></table></figure></p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -896,6 +839,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -935,77 +882,64 @@
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/uploads/new-head.jpg"
-               alt="Remo HU" />
-          <p class="site-author-name" itemprop="name">Remo HU</p>
-           
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/new-head.jpg" alt="Remo HU">
+            
+              <p class="site-author-name" itemprop="name">Remo HU</p>
               <p class="site-description motion-element" itemprop="description">Less is More</p>
-          
-        </div>
-        <nav class="site-state motion-element">
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
 
           
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">11</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/RemoHz" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://remo.site" target="_blank" title="Portfolio">
+                      
+                        <i class="fa fa-fw fa-rocket"></i>Portfolio</a>
+                  </span>
+                
             </div>
           
 
           
+          
+
+          
+          
 
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/RemoHz" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://au.linkedin.com/in/zhehu" target="_blank" title="LinkedIn">
-                  
-                    <i class="fa fa-fw fa-linkedin"></i>
-                  
-                  LinkedIn
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://remo.site" target="_blank" title="Site">
-                  
-                    <i class="fa fa-fw fa-rocket"></i>
-                  
-                  Site
-                </a>
-              </span>
-            
-          
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -1022,19 +956,36 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Remo HU</span>
+
+  
 </div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
 
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -1045,6 +996,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -1079,60 +1032,60 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
-  <script async="" src="/js/src/flourish.js"></script>
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
 
-
-
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
 
   
 
-    
-      <script id="dsq-count-scr" src="https://remohz.disqus.com/count.js" async></script>
-    
 
-    
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script async src="/js/src/flourish.js"></script>
+
+
+
+  
+
 
   
 
@@ -1151,6 +1104,16 @@
 
 
 
+  
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1164,6 +1127,9 @@
 
   
 
+  
+
+  
   
 
   
