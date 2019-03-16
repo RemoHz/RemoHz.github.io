@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Remo, zhehu, remocode">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="To add an embedded video in HTML is as simple as add an image, but to make video responsive is a little bit tricky. When I try to make a full screen layout with video like below, it took my some effor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Make Aspect Ratio Video Responsive">
+<meta property="og:url" content="http://remo.host/2019/03/16/2019-03-16-make-aspect-ratio-video-responsive/index.html">
+<meta property="og:site_name" content="Remo">
+<meta property="og:description" content="To add an embedded video in HTML is as simple as add an image, but to make video responsive is a little bit tricky. When I try to make a full screen layout with video like below, it took my some effor">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://remo.site/img/video-layout.png">
+<meta property="og:image" content="http://remo.site/img/inpect-video.png">
+<meta property="og:image" content="http://remo.site/img/inpect-video-code.png">
+<meta property="og:updated_time" content="2019-03-16T05:11:30.199Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Make Aspect Ratio Video Responsive">
+<meta name="twitter:description" content="To add an embedded video in HTML is as simple as add an image, but to make video responsive is a little bit tricky. When I try to make a full screen layout with video like below, it took my some effor">
+<meta name="twitter:image" content="http://remo.site/img/video-layout.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://remo.host/2019/03/16/2019-03-16-make-aspect-ratio-video-responsive/">
+
+
+
+
+
+  <title>Make Aspect Ratio Video Responsive | Remo</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-102642679-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="header-animation-canvas w-embed" style="position: fixed; height: 100%; width: 100%;">
+  <canvas id="header_canvas" style="width: 100%; height: 100%; background: white;"></canvas>
+</div><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Remo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://remo.host/2019/03/16/2019-03-16-make-aspect-ratio-video-responsive/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Remo HU">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/new-head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Remo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Make Aspect Ratio Video Responsive</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-16T00:00:00+11:00">
+                2019-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/16/2019-03-16-make-aspect-ratio-video-responsive/" class="leancloud_visitors" data-flag-title="Make Aspect Ratio Video Responsive">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>To add an embedded video in HTML is as simple as add an image, but to make video responsive is a little bit tricky. When I try to make a full screen layout with video like below, it took my some effort to make it responsive. As my client request, this layout has below features:</p>
+<ul>
+<li>Support both raw HTML5 <code>&lt;video&gt;</code> and <code>&lt;iframe&gt;</code> video (Vimeo), which they can easily modify in CMS.</li>
+<li>All videos will be in a common aspect ratio <code>16/9</code>.</li>
+<li>Keep video height to fit the screen height in large screen, while keep video respect ratio in small screen.</li>
+</ul>
+<p><img src="http://remo.site/img/video-layout.png" alt="video layout"><br><a id="more"></a></p>
+<h2 id="Raw-HTML5-Video-Responsive"><a href="#Raw-HTML5-Video-Responsive" class="headerlink" title="Raw HTML5 Video Responsive"></a>Raw HTML5 Video Responsive</h2><p>For raw video element, it’s not that hard and we can treat it as image element. We just need to set video’s max height, then the video size will be adjust based on browser window change.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"home-banner__wrap"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"home-banner__left"</span>&gt;</span>Left Text<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"home-banner__right"</span>&gt;</span>Right Text<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">video</span> <span class="attr">class</span>=<span class="string">"home-banner__main"</span> <span class="attr">poster</span>=<span class="string">"$&#123;videoPosterUrl&#125;"</span> <span class="attr">autoplay</span> <span class="attr">loop</span> <span class="attr">muted</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"$&#123;videoUrl&#125;"</span> <span class="attr">type</span>=<span class="string">"video/mp4"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$home-banner-height</span>: calc(<span class="number">100vh</span> - <span class="number">80px</span> - <span class="number">15px</span>);</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.home-banner</span> &#123;</span><br><span class="line">    &amp;__video &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">margin-left</span>: auto;</span><br><span class="line">        <span class="attribute">margin-right</span>: auto;</span><br><span class="line">        </span><br><span class="line">        <span class="attribute">max-height</span>: <span class="variable">$home-banner-height-mobile</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// IE fix only</span></span><br><span class="line">        &amp;<span class="selector-class">.ie-fix</span> &#123;</span><br><span class="line">            <span class="attribute">max-height</span>: <span class="number">100%</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Video works nicely as you scale down the browser window. But how can we locate the left and right element? You may say just make video’s parent element relative, then make left &amp; right element absolute and negative to the video. </p>
+<p>That’s what I thought initially. But the reality is that video element width is not what we can see(<code>visible area</code>), it actually takes the <code>full width</code> of window. So the previous solution will make the left &amp; right element out of the browser window.</p>
+<p><img src="http://remo.site/img/inpect-video.png" alt="inspect video"><br><img src="http://remo.site/img/inpect-video-code.png" alt="inspect video code"></p>
+<p>A better solution for this is to calculate the gap between video and window by using aspect ratio. Then we can locate the left &amp; right element based on the gap correspondingly.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> videoHeight = $(<span class="string">'[data-video]'</span>).height();</span><br><span class="line"><span class="keyword">let</span> windowWidth = $(<span class="built_in">window</span>).width();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Use aespect ratio to get the visible video width</span></span><br><span class="line"><span class="keyword">let</span> realVideoWidth = videoHeight * <span class="number">16</span> / <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// The gap between video and window</span></span><br><span class="line"><span class="keyword">let</span> videoGapWidth  = (windowWidth - realVideoWidth) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// To locate the left &amp; right element based on the video gap</span></span><br><span class="line"><span class="keyword">let</span> $leftText  = $(<span class="string">'[data-left-text]'</span>);</span><br><span class="line"><span class="keyword">let</span> $rightText = $(<span class="string">'[data-right-text]'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> spaceOffset = videoGapWidth / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">$leftText.css(&#123; <span class="string">'left'</span> : spaceOffset + <span class="string">'px'</span> &#125;);</span><br><span class="line">$rightText.css(&#123; <span class="string">'right'</span> : spaceOffset + <span class="string">'px'</span> &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="Iframe-Video-Responsive"><a href="#Iframe-Video-Responsive" class="headerlink" title="Iframe Video Responsive"></a>Iframe Video Responsive</h2><p>For iframe video, if you only want to make video responsive and don’t need to take care of my specific layout case, then I suggest you to use <a href="http://fitvidsjs.com/" target="_blank" rel="noopener">FitVids.js</a>, which can fix the issue quickly. Basically what it does is mainly wrap the iframe in a container and add the aspect ratio treatment, like below:<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap-container</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative; </span><br><span class="line">    <span class="attribute">padding-bottom</span>: <span class="number">56.25%</span>;    <span class="comment">// 16/9</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden; </span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">100%</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>But for my layout case, that library can not fit the full screen height. So I need to calculate the size just like what we did before.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"home-banner__wrap"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"video-iframe-box"</span> <span class="attr">data-video-iframe-box</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">'https://player.vimeo.com/video/xxxx'</span> <span class="attr">frameborder</span>=<span class="string">'0'</span> <span class="attr">webkitAllowFullScreen</span> <span class="attr">mozallowfullscreen</span> <span class="attr">allowFullScreen</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Adjust iframe scale</span></span><br><span class="line"><span class="keyword">let</span> $videoFrame  = $(<span class="string">'[data-video-iframe-box] &gt; iframe'</span>);</span><br><span class="line"><span class="keyword">let</span> iframeHeight = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> iframeWidth  = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// When video visible area less than window's width</span></span><br><span class="line"><span class="keyword">if</span> (windowWidth &gt;= <span class="number">1440</span>) &#123;</span><br><span class="line">    <span class="comment">// Window's height minus top &amp; bottom space</span></span><br><span class="line">    iframeHeight = $(<span class="built_in">window</span>).height() - <span class="number">95</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Calculate iframe width based on aspect ratio</span></span><br><span class="line">    iframeWidth  = iframeHeight * <span class="number">16</span> / <span class="number">9</span>;</span><br><span class="line">    </span><br><span class="line">    $videoFrame.css(&#123; </span><br><span class="line">        width: iframeWidth + <span class="string">'px'</span>,</span><br><span class="line">        height: iframeHeight + <span class="string">'px'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// When video visible area is large than window's width</span></span><br><span class="line">    iframeWidth  = $(<span class="built_in">window</span>).width();</span><br><span class="line">    iframeHeight = iframeWidth * <span class="number">9</span> / <span class="number">16</span>;</span><br><span class="line">    $videoFrame.css(&#123; </span><br><span class="line">        width: iframeWidth + <span class="string">'px'</span>,</span><br><span class="line">        height: iframeHeight + <span class="string">'px'</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/05/2016-11-05-CSS-Position/" rel="next" title="CSS Position Property">
+                <i class="fa fa-chevron-left"></i> CSS Position Property
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/new-head.jpg" alt="Remo HU">
+            
+              <p class="site-author-name" itemprop="name">Remo HU</p>
+              <p class="site-description motion-element" itemprop="description">Less is More</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/RemoHz" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://remo.site" target="_blank" title="Portfolio">
+                      
+                        <i class="fa fa-fw fa-rocket"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/in/zhehu" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Raw-HTML5-Video-Responsive"><span class="nav-number">1.</span> <span class="nav-text">Raw HTML5 Video Responsive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Iframe-Video-Responsive"><span class="nav-number">2.</span> <span class="nav-text">Iframe Video Responsive</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Remo HU</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script async src="/js/src/flourish.js"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("KuLAutXOzNjVTVEkHqaXjs3L-gzGzoHsz", "pBAGU2ck2bnnhAJvVMnwGqY0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
